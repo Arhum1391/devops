@@ -7,7 +7,7 @@ import { getPublicUserById } from '@/lib/auth';
 const MIN_COMMENT_LENGTH = 10;
 
 // Cache GET reviews responses for 60 seconds on the edge
-export const revalidate = 60;
+export const dynamic = 'force-dynamic';
 
 export async function GET(request: NextRequest) {
   try {

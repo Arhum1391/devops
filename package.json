@@ -8,8 +8,9 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "build": "next build && node -e \"const fs=require('fs');const path=require('path');if(fs.existsSync('.next/standalone')){fs.cpSync('public','.next/standalone/public',{recursive:true});fs.cpSync('.next/static','.next/standalone/.next/static',{recursive:true});}\"",
+    "start": "node .next/standalone/server.js",
+    "start:local": "next start",
     "lint": "eslint",
     "rename-collection": "node rename-collection.js",
     "create-analysts": "node scripts/create-analysts.js",
@@ -27,6 +28,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.937.0",
+    "typescript": "^5",
     "@aws-sdk/s3-request-presigner": "^3.937.0",
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.4.5",
@@ -52,7 +54,6 @@
     "eslint": "^9",
     "eslint-config-next": "15.5.7",
     "tailwindcss": "^4",
-    "tsx": "^4.19.0",
-    "typescript": "^5"
+    "tsx": "^4.19.0"
   }
 }

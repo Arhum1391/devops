@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { getDb } from '@/lib/mongodb';
 import { resolveTeamMemberImage } from '@/lib/teamImages';
 
-export const revalidate = 60;
+export const dynamic = 'force-dynamic';
 
 interface Analyst {
   id: number;

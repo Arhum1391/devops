@@ -1,6 +1,7 @@
 /**
  * MongoDB client for Next.js
- * Uses Promise-based singleton to prevent connection pool exhaustion
+ * Uses lazy Promise-based singleton to prevent connection pool exhaustion
+ * without connecting at module load time (which breaks Next.js builds)
  */
 import { MongoClient, Db } from 'mongodb';
 
@@ -15,20 +16,20 @@ declare global {
   var _mongoClientPromise: Promise<MongoClient> | undefined;
 }
 
-const client = new MongoClient(uri, {
-  maxPoolSize: 10,
-  serverSelectionTimeoutMS: 5000,
-  socketTimeoutMS: 45000,
-});
-
-if (!global._mongoClientPromise) {
-  global._mongoClientPromise = client.connect();
+function getClientPromise(): Promise<MongoClient> {
+  if (!global._mongoClientPromise) {
+    const client = new MongoClient(uri, {
+      maxPoolSize: 10,
+      serverSelectionTimeoutMS: 5000,
+      socketTimeoutMS: 45000,
+    });
+    global._mongoClientPromise = client.connect();
+  }
+  return global._mongoClientPromise;
 }
 
-const clientPromise: Promise<MongoClient> = global._mongoClientPromise;
-
 async function connect(): Promise<{ client: MongoClient; db: Db }> {
-  const mongoClient = await clientPromise;
+  const mongoClient = await getClientPromise();
   const db = mongoClient.db(dbName);
   return { client: mongoClient, db };
 }

@@ -1,0 +1,227 @@
+================================================================================
+       ELASTIC BEANSTALK DEPLOYMENT GUIDE — Inspired Analyst
+       (For Group Members — Console-Only Setup)
+================================================================================
+
+You will receive:
+  - A ZIP file containing the pre-built application (includes .next/ folder)
+  - A .env.local file with all environment variables
+
+Do NOT run npm install or npm run build yourself.
+Just follow the steps below exactly.
+
+--------------------------------------------------------------------------------
+STEP 1 — LOG IN TO AWS
+--------------------------------------------------------------------------------
+
+1. Go to https://aws.amazon.com and sign in to the AWS Console.
+2. In the top-right corner, make sure your region is set to:
+   eu-north-1 (Stockholm)  ← use the same region as the others in the group
+
+--------------------------------------------------------------------------------
+STEP 2 — CREATE THE ELASTIC BEANSTALK APPLICATION
+--------------------------------------------------------------------------------
+
+1. Search for "Elastic Beanstalk" in the AWS search bar and open it.
+2. Click "Create application".
+3. Fill in:
+     Application name : TechSol  (or your own name — see NOTE below)
+     Platform         : Node.js
+     Platform branch  : Node.js 20 running on 64bit Amazon Linux 2023
+     Platform version : (leave as recommended/default)
+
+   NOTE ON NAMING:
+   Every person in the group must use a DIFFERENT environment name and
+   will get a DIFFERENT domain. For example:
+     Person 1 → techsol-env    → techsol-env.eba-xxxx.eu-north-1.elasticbeanstalk.com
+     Person 2 → techsol-env-2  → techsol-env-2.eba-xxxx.eu-north-1.elasticbeanstalk.com
+   The domain is shown on the EB environment page after creation.
+
+4. Under "Application code":
+     Select : Upload your code
+     Version label : v1  (or any label you like)
+     Source : Local file → upload the ZIP file you received
+
+5. Click "Next" — do NOT click "Create" yet.
+
+--------------------------------------------------------------------------------
+STEP 3 — CONFIGURE SERVICE ACCESS
+--------------------------------------------------------------------------------
+
+On the "Configure service access" screen:
+
+  Service role       : Create and use new service role
+                       (name: aws-elasticbeanstalk-service-role)
+  EC2 key pair       : Skip / leave blank (not needed)
+  EC2 instance profile: If it asks, select or create
+                        "aws-elasticbeanstalk-ec2-role"
+
+Click "Next".
+
+--------------------------------------------------------------------------------
+STEP 4 — SET UP NETWORKING (skip / use defaults)
+--------------------------------------------------------------------------------
+
+Leave everything as default on the VPC/networking screen.
+Click "Next".
+
+--------------------------------------------------------------------------------
+STEP 5 — CONFIGURE INSTANCE — ⚠️ IMPORTANT (2 GB RAM)
+--------------------------------------------------------------------------------
+
+On the "Configure instance traffic and scaling" screen:
+
+  Root volume type : General Purpose (SSD)
+  Root volume size : 10 GB  (default is fine)
+
+  Under "Instance types":
+    Remove the default (t3.micro — only 1 GB RAM, too small).
+    Add : t3.small  (2 GB RAM) ← REQUIRED, the app will crash on micro
+
+  Auto scaling:
+    Min instances : 1
+    Max instances : 1
+
+Click "Next".
+
+--------------------------------------------------------------------------------
+STEP 6 — CONFIGURE UPDATES & MONITORING (use defaults)
+--------------------------------------------------------------------------------
+
+Leave everything as default.
+Click "Next".
+
+--------------------------------------------------------------------------------
+STEP 7 — ENVIRONMENT PROPERTIES ⚠️ CRITICAL STEP
+--------------------------------------------------------------------------------
+
+On the "Configure environment properties" screen you must add ALL the
+variables below. Click "Add environment property" for each one.
+
+Copy the values from the .env.local file you received, EXCEPT for
+NEXT_PUBLIC_BASE_URL which you must set to YOUR OWN EB domain
+(you will get this domain after the environment is created — see Step 9
+if you need to update it after creation).
+
+--- PASTE THESE (values from your .env.local) ---
+
+  MONGODB_URI                         = <value from .env.local>
+  MONGODB_DATABASE                    = inspired_analyst
+  CALENDLY_ACCESS_TOKEN               = <value from .env.local>
+  COLLAB_EMAIL                        = <value from .env.local>
+  SMTP_HOST                           = smtp.gmail.com
+  SMTP_PORT                           = 587
+  SMTP_SECURE                         = false
+  SMTP_USER                           = <value from .env.local>
+  SMTP_PASS                           = <value from .env.local>
+  AWS_S3_BUCKET_NAME                  = inspired-analyst
+  AWS_S3_REGION                       = us-east-1
+  AWS_ACCESS_KEY_ID                   = <value from .env.local>
+  AWS_SECRET_ACCESS_KEY               = <value from .env.local>
+  JWT_SECRET                          = <value from .env.local>
+  STRIPE_SECRET_KEY                   = <value from .env.local>
+  STRIPE_WEBHOOK_SECRET               = <value from .env.local>
+  STRIPE_PUBLISHABLE_KEY              = <value from .env.local>
+  NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY  = <value from .env.local>
+  STRIPE_PRICE_ID_MONTHLY             = <value from .env.local>
+  STRIPE_PRICE_ID_ANNUAL              = <value from .env.local>
+  BINANCE_CREDENTIALS_ENCRYPTION_KEY  = <value from .env.local>
+  PORT                                = 8080
+  NODE_ENV                            = production
+
+  NEXT_PUBLIC_BASE_URL  = http://YOUR-ENV-NAME.eba-xxxx.eu-north-1.elasticbeanstalk.com
+                          ↑ PUT YOUR OWN EB DOMAIN HERE (see Step 9 for how to find it)
+
+Click "Next", then "Submit".
+
+--------------------------------------------------------------------------------
+STEP 8 — WAIT FOR DEPLOYMENT
+--------------------------------------------------------------------------------
+
+The environment will take 5–15 minutes to launch.
+Watch the Events tab — you want to see:
+
+  "Successfully launched environment"
+  Health: Green (Ok)
+
+If it stays on "Info" or "Degraded" for more than 15 minutes, see the
+TROUBLESHOOTING section at the bottom of this guide.
+
+--------------------------------------------------------------------------------
+STEP 9 — FIND YOUR DOMAIN & UPDATE NEXT_PUBLIC_BASE_URL
+--------------------------------------------------------------------------------
+
+1. Once the environment is created and healthy, click on your environment.
+2. At the top you will see the domain, e.g.:
+     http://techsol-env-2.eba-abc12345.eu-north-1.elasticbeanstalk.com
+
+3. If you had to guess the domain during setup, update it now:
+   EB Console → your environment → Configuration → Environment Properties
+   → Find NEXT_PUBLIC_BASE_URL → Change to your actual domain → Apply
+
+4. After updating env properties, wait ~2 minutes for the environment to
+   restart, then visit your domain in a browser.
+
+--------------------------------------------------------------------------------
+STEP 10 — WHITELIST YOUR EB SERVER IN MONGODB ATLAS  (ye hua hua rehne do meri side se)
+--------------------------------------------------------------------------------
+
+The app talks to MongoDB Atlas. If you get API errors (500 or connection
+refused), the EB server IP may be blocked.
+
+1. Log in to https://cloud.mongodb.com
+2. Go to your cluster → Network Access
+3. Click "Add IP Address"
+4. Enter: 0.0.0.0/0  (allow all IPs)
+5. Click Confirm.
+
+This is fine for a university project. For production you would restrict it.
+
+--------------------------------------------------------------------------------
+TROUBLESHOOTING
+--------------------------------------------------------------------------------
+
+PROBLEM: 502 Bad Gateway immediately after creation
+  CAUSE : The app has not started yet, or it crashed.
+  FIX   : Wait 5 more minutes. Check Logs (Last 100 lines) in the EB console
+          for errors. Most common cause is a missing environment variable.
+
+PROBLEM: Health stays "Degraded" / "Red"
+  CAUSE : Usually a bad env variable or wrong instance type (t3.micro).
+  FIX   : 
+    1. Go to Configuration → Instances → make sure t3.small is selected.
+    2. Go to Configuration → Environment Properties → check all values.
+    3. After any config change, click Apply and wait for restart.
+
+PROBLEM: APIs return 404 or empty data
+  CAUSE : NEXT_PUBLIC_BASE_URL is wrong or MONGODB_URI is blocked.
+  FIX   : Double-check both values in Environment Properties.
+          Make sure MongoDB Atlas Network Access allows 0.0.0.0/0.
+
+PROBLEM: App stuck on "Info" / "Pending" for more than 15 minutes
+  CAUSE : Build is running out of memory (only happens if you accidentally
+          sent a ZIP without the .next/ folder — the server is trying to build).
+  FIX   : Terminate the environment and re-create it with the correct ZIP
+          (the one that already has .next/ inside).
+
+PROBLEM: Environment health shows "Severe" after instance type change
+  CAUSE : The old broken version is still running on the new instance.
+  FIX   : Go to Application Versions → select your version → Deploy.
+
+--------------------------------------------------------------------------------
+STOPPING THE ENVIRONMENT (to avoid AWS charges)
+--------------------------------------------------------------------------------
+
+When you are done and don't want the site to be live:
+  EB Console → your environment → Actions → Terminate Environment
+
+To start it again later:
+  EB Console → your application → Create new environment
+  (Upload the ZIP again and redo the environment properties.)
+
+The domain will CHANGE each time you create a new environment,
+so remember to update NEXT_PUBLIC_BASE_URL each time.
+
+================================================================================
+END OF GUIDE
+================================================================================
