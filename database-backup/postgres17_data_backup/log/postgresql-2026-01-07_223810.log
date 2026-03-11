@@ -1,0 +1,3 @@
+2026-01-07 22:38:10 PKT LOG:  database system was shut down at 2026-01-07 22:37:39 PKT
+2026-01-07 22:43:10 PKT LOG:  checkpoint starting: time
+2026-01-07 22:43:10 PKT LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.003 s, total=0.030 s; sync files=2, longest=0.002 s, average=0.002 s; distance=0 kB, estimate=0 kB; lsn=0/5E20F80, redo lsn=0/5E20F28

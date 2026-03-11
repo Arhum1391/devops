@@ -1,0 +1,1068 @@
+@import "tailwindcss";
+
+/* Gilroy fonts loaded locally from public/fonts */
+@font-face {
+  font-family: 'Gilroy-Medium';
+  src: url('/fonts/Gilroy-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy-SemiBold';
+  src: url('/fonts/Gilroy-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --background: #0A0A0A;
+  --foreground: #ffffff;
+  --card-bg: #1F1F1F;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: 'Gilroy-Medium', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Remove selection boxes from all links */
+a, a:focus, a:active, a:visited {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-focus-ring-color: transparent !important;
+}
+
+/* Remove selection boxes from Next.js Link components */
+[data-nextjs-link], [data-nextjs-link]:focus, [data-nextjs-link]:active {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-focus-ring-color: transparent !important;
+}
+
+/* Ensure all elements use Gilroy Medium by default */
+* {
+  font-family: 'Gilroy-Medium', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
+}
+
+/* All headings use Gilroy SemiBold */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Gilroy-SemiBold', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
+  font-weight: 600;
+}
+
+/* Custom Gilroy heading style - balanced font size with reduced padding */
+.gilroy-heading {
+  font-family: 'Gilroy-SemiBold', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 1.3;
+  letter-spacing: 0;
+  text-align: center;
+  /* Increased font sizes for better readability */
+  font-size: 1.5rem; /* 20px on mobile */
+}
+
+/* Gilroy font weight utility classes */
+.gilroy-regular {
+  font-family: 'Gilroy-Medium', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
+  font-weight: 400;
+}
+
+.gilroy-medium {
+  font-family: 'Gilroy-Medium', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
+  font-weight: 500;
+}
+
+.gilroy-semibold {
+  font-family: 'Gilroy-SemiBold', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
+  font-weight: 600;
+}
+
+.gilroy-bold {
+  font-family: 'Gilroy-SemiBold', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
+  font-weight: 700;
+}
+
+/* Line clamp utility for text truncation */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .gilroy-heading {
+    font-size: 1.5rem; /* 24px on small screens */
+  }
+}
+
+@media (min-width: 768px) {
+  .gilroy-heading {
+    font-size: 2rem; /* 30px on medium screens */
+  }
+}
+
+@media (min-width: 1024px) {
+  .gilroy-heading {
+    font-size: 2.25rem; /* 36px on large screens */
+  }
+}
+
+@media (min-width: 1280px) {
+  .gilroy-heading {
+    font-size: 2.05rem; /* 40px on extra large screens */
+  }
+}
+
+@media (min-width: 1536px) {
+  .gilroy-heading {
+    font-size: 1.75rem; /* 28px on 2xl screens - reduced to fit 3 lines */
+  }
+}
+
+@media (min-width: 1540px) {
+  .gilroy-heading {
+    font-size: 1.875rem; /* 30px on very large screens - reduced to fit 3 lines */
+  }
+}
+
+@media (min-width: 1920px) {
+  .gilroy-heading {
+    font-size: 2rem; /* 32px on very large screens - further reduced */
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Gilroy-Medium', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Gradient Border Background Effect */
+.gradient-border-bg {
+  position: fixed;
+  top: -250px;
+  left: -250px;
+  right: -250px;
+  bottom: -250px;
+  border: 250px solid;
+  border-image-source: linear-gradient(106.22deg, #3813F3 0%, #05B0B3 31.35%, #4B25FD 62.69%, #B9B9E9 78.36%, #DE50EC 97.95%);
+  border-image-slice: 1;
+  filter: blur(100px);
+  z-index: -1; /* Ensure it's behind everything */
+}
+
+/* Custom class for the image fade effect - horizontal on mobile, vertical on desktop */
+.fade-mask {
+  mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+}
+
+@media (min-width: 1024px) {
+  .fade-mask {
+    mask-image: linear-gradient(to bottom, transparent 0%, black 42%, black 75%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 42%, black 75%, transparent 100%);
+  }
+}
+
+/* Reduced fade effect for bootcamp belts */
+.fade-mask-reduced {
+  mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+}
+
+@media (min-width: 1024px) {
+  .fade-mask-reduced {
+    mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+  }
+}
+
+/* Custom keyframes for horizontal scrolling (mobile) */
+/* Exact same logic as vertical: both move same distance, start at different positions */
+@keyframes scrollLeftMobile {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollRightMobile {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Custom keyframes for vertical scrolling (desktop) */
+@keyframes scrollUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes scrollDown {
+  from {
+    transform: translateY(-50%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Mobile: Horizontal scrolling - use separate keyframes for true opposite movement */
+.animate-scrollUp {
+  animation: scrollLeftMobile 60s linear infinite;
+}
+
+.animate-scrollDown {
+  animation: scrollRightMobile 60s linear infinite;
+}
+
+/* Desktop: Vertical scrolling - slower for desktop */
+@media (min-width: 1024px) {
+  .animate-scrollUp {
+    animation: scrollUp 80s linear infinite;
+  }
+
+  .animate-scrollDown {
+    animation: scrollDown 80s linear infinite;
+  }
+}
+
+/* Keyframes for zoom wave motion on background */
+@keyframes zoomWave {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Utility class for background zoom animation */
+.animate-zoom-wave {
+  animation: zoomWave 5s ease-in-out infinite;
+}
+
+
+/* Custom animations for landing page */
+@keyframes scroll-vertical {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+.scroll-container {
+  animation: scroll-vertical 20s linear infinite;
+}
+
+/* Custom gradient backgrounds */
+.gradient-blur {
+  background: linear-gradient(107.68deg, #3813F3 9.35%, #05B0B3 34.7%, #4B25FD 60.06%, #B9B9E9 72.73%, #DE50EC 88.58%);
+  filter: blur(200px);
+}
+
+.newsletter-ellipse {
+  background: linear-gradient(107.68deg, #3813F3 9.35%, #05B0B3 34.7%, #4B25FD 60.06%, #B9B9E9 72.73%, #DE50EC 88.58%);
+  border-radius: 50%;
+}
+
+.newsletter-background-ellipse {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  background: linear-gradient(107.68deg, #3813F3 9.35%, #05B0B3 34.7%, #4B25FD 60.06%, #B9B9E9 72.73%, #DE50EC 88.58%);
+  border-radius: 50%;
+  width: 1100px;
+  height: 800px;
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(80px);
+  mask: radial-gradient(circle, white 40%, rgba(255,255,255,0.6) 55%, rgba(255,255,255,0.2) 70%, transparent 80%);
+  -webkit-mask: radial-gradient(circle, white 40%, rgba(255,255,255,0.6) 55%, rgba(255,255,255,0.2) 70%, transparent 80%);
+}
+
+/* Make ellipse only visible within newsletter container */
+.newsletter-container {
+  position: relative;
+  isolation: isolate;
+}
+
+.newsletter-container .newsletter-background-ellipse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+/* Footer container */
+.footer-container {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Social media icon boxes */
+.social-icon-box {
+  background-color: #12171f !important;
+  width: 1.75rem !important;
+  height: 1.75rem !important;
+  border-radius: 0.5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+  z-index: 50 !important;
+  transition: background-color 0.2s !important;
+}
+
+.social-icon-box:hover {
+  background-color: #374151 !important;
+}
+
+.newsletter-gradient {
+  background: linear-gradient(180deg, #333333 0%, #1F1F1F 100%);
+}
+
+.mask-gradient {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 24%, #FFFFFF 86%, rgba(255, 255, 255, 0) 100%);
+}
+
+/* Scrollbar hide for horizontal scroll */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Safari-specific carousel fixes */
+@supports (-webkit-appearance: none) {
+  .carousel-container {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .carousel-item {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+}
+
+/* Additional hover effects and animations */
+.hover-scale {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* Video card play button animation */
+.play-button {
+  transition: all 0.3s ease;
+}
+
+.play-button:hover {
+  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 1);
+}
+
+/* Smooth transitions for all interactive elements - except animated scroll elements and scrollable containers */
+*:not(.animate-scrollUp):not(.animate-scrollDown):not(.animate-zoom-wave):not(.scrollbar-hide) {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Calendar vignette effect - simplified for smooth transition */
+.inner-shadow-vignette::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, transparent 0%, transparent 60%, rgba(10, 10, 10, 0.2) 100%);
+  pointer-events: none;
+}
+
+/* Focus states for accessibility */
+a:focus,
+input:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+/* Remove focus outline from signin page inputs */
+.custom-input-focus-remove:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Handle autofill state for inputs - keep transparent background consistent, match normal text color */
+.custom-input-focus-remove:-webkit-autofill,
+.custom-input-focus-remove:-webkit-autofill:hover,
+.custom-input-focus-remove:-webkit-autofill:focus,
+.custom-input-focus-remove:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+  box-shadow: 0 0 0 30px transparent inset !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.6) !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  transition: background-color 5000s ease-in-out 0s, background-image 5000s ease-in-out 0s !important;
+}
+
+/* Ensure password visibility toggle button is always visible on autofilled fields */
+input[type="password"]:-webkit-autofill ~ button,
+input[type="text"][name="password"]:-webkit-autofill ~ button {
+  z-index: 10 !important;
+  pointer-events: auto !important;
+  opacity: 1 !important;
+}
+
+/* Admin login page - remove focus border and handle autofill */
+.admin-login-input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.admin-login-input:-webkit-autofill,
+.admin-login-input:-webkit-autofill:hover,
+.admin-login-input:-webkit-autofill:focus,
+.admin-login-input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px rgb(51, 65, 85) inset !important;
+  box-shadow: 0 0 0 30px rgb(51, 65, 85) inset !important;
+  background-color: rgb(51, 65, 85) !important;
+  background-image: none !important;
+  -webkit-text-fill-color: rgb(255, 255, 255) !important;
+  color: rgb(255, 255, 255) !important;
+  transition: background-color 5000s ease-in-out 0s, background-image 5000s ease-in-out 0s !important;
+}
+
+/* Ensure password visibility toggle button is visible on autofilled admin login fields */
+.admin-login-input[type="password"]:-webkit-autofill ~ button,
+.admin-login-input[type="text"][name="password"]:-webkit-autofill ~ button {
+  z-index: 10 !important;
+  pointer-events: auto !important;
+  opacity: 1 !important;
+}
+
+/* Remove focus styles from all buttons */
+button:focus,
+button:active,
+button:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+
+/* Custom scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== ADMIN PANEL STYLES ===== */
+
+/* Admin-specific scrollbar */
+.admin-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.admin-scrollbar::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+.admin-scrollbar::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 3px;
+}
+
+.admin-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Glass morphism effect for admin */
+.admin-glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.admin-glass-card {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Admin gradient text */
+.admin-gradient-text {
+  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Admin animated gradient background */
+.admin-animated-bg {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
+}
+
+/* Admin button styles */
+.admin-btn-primary {
+  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.admin-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+}
+
+.admin-btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.admin-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Admin input styles */
+.admin-input-modern {
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 12px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.admin-input-modern:focus {
+  outline: none;
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+  background: rgba(30, 41, 59, 0.9);
+}
+
+.admin-input-modern::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Admin hover effects */
+.admin-hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.admin-hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Horizontal infinite scroll animation for video carousel */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Brand logos carousel animation */
+@keyframes carousel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% / 2));
+  }
+}
+
+.animate-carousel {
+  animation: carousel 40s linear infinite;
+  width: max-content;
+}
+
+.animate-carousel:hover {
+  animation-play-state: paused;
+}
+
+/* Video carousel animation - same as brand carousel but slower */
+.animate-video-carousel {
+  animation: carousel 60s linear infinite;
+  width: max-content;
+}
+
+.animate-video-carousel:hover {
+  animation-play-state: paused;
+}
+
+/* Safari-specific hardware acceleration for carousels with drag */
+.carousel-container {
+  -webkit-overflow-scrolling: touch;
+  transform: translateZ(0);
+  will-change: scroll-position;
+}
+
+/* Enhanced Safari compatibility for video carousels */
+@supports (-webkit-appearance: none) {
+  .carousel-container {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Ensure navbar always stays on top with backdrop blur */
+nav, header, [class*="Navbar"], [class*="navbar"] {
+  z-index: 9999 !important;
+}
+
+/* Remove forced z-index from sections to allow natural stacking with fixed navbar */
+section, main, div[id^="social-"], div[id^="latest-"], div[id^="partners"], div[id^="brand-"], div[id^="features"], div[id^="newsletter"], div[id^="collaboration"], div[id^="tailored-"] {
+  position: relative;
+}
+
+/* Calendly Widget Custom Styling */
+.calendly-inline-widget {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Style the Calendly iframe to match the dark theme */
+.calendly-inline-widget iframe {
+  border-radius: 1rem;
+  background: #1F1F1F;
+}
+
+/* Additional styling to blend Calendly with our design */
+.calendly-inline-widget::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Calendly Popup Overlay Styling */
+.calendly-overlay {
+  background: rgba(0, 0, 0, 0.85) !important;
+  backdrop-filter: blur(8px);
+}
+
+/* Calendly Popup Container */
+.calendly-popup {
+  border-radius: 1rem !important;
+  overflow: hidden !important;
+}
+
+/* Calendly Popup Close Button */
+.calendly-popup .calendly-close-overlay {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 50% !important;
+  transition: all 0.3s ease !important;
+}
+
+.calendly-popup .calendly-close-overlay:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  transform: scale(1.1);
+}
+
+/* Flip Card Styles */
+.flip-card {
+  perspective: 1000px;
+  width: 341px;
+  height: 302px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  pointer-events: auto;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.flip-card-front {
+  pointer-events: auto;
+}
+
+.flip-card:hover .flip-card-front {
+  pointer-events: none;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  pointer-events: auto;
+}
+
+.flip-card:hover .flip-card-back {
+  pointer-events: auto;
+}
+
+/* Custom minimal scrollbar for flip cards */
+.flip-card-description-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.05);
+}
+
+.flip-card-description-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.flip-card-description-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+  margin: 4px 0;
+}
+
+.flip-card-description-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+  cursor: pointer;
+  min-height: 20px;
+}
+
+.flip-card-description-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.flip-card-description-scroll::-webkit-scrollbar-thumb:active {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* Minimal scrollbar for pricing features section */
+.pricing-features-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+
+.pricing-features-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.pricing-features-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.pricing-features-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+}
+
+.pricing-features-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Minimal scrollbar for review name horizontal scrolling */
+/* Only appears when text cannot wrap (e.g., very long strings without spaces) */
+.review-name-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.review-name-scroll::-webkit-scrollbar {
+  height: 3px;
+}
+
+.review-name-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.review-name-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+}
+
+.review-name-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.research-gradient {
+  background: linear-gradient(
+    107.68deg,
+    #3813f3 9.35%,
+    #05b0b3 34.7%,
+    #4b25fd 60.06%,
+    #b9b9e9 72.73%,
+    #de50ec 88.58%
+  );
+}
+
+/* Animated Gradient Mesh Animations */
+@keyframes float-1 {
+  0%, 100% {
+    transform: translate(-50%, -50%) translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(-50%, -50%) translate(30px, -40px) scale(1.1);
+  }
+  66% {
+    transform: translate(-50%, -50%) translate(-20px, 30px) scale(0.9);
+  }
+}
+
+@keyframes float-2 {
+  0%, 100% {
+    transform: translate(-50%, -50%) translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(-50%, -50%) translate(-35px, 25px) scale(1.15);
+  }
+  50% {
+    transform: translate(-50%, -50%) translate(25px, -30px) scale(0.85);
+  }
+  75% {
+    transform: translate(-50%, -50%) translate(-15px, -20px) scale(1.05);
+  }
+}
+
+@keyframes float-3 {
+  0%, 100% {
+    transform: translate(-50%, -50%) translate(0, 0) scale(1);
+  }
+  20% {
+    transform: translate(-50%, -50%) translate(40px, 20px) scale(0.95);
+  }
+  40% {
+    transform: translate(-50%, -50%) translate(-30px, -35px) scale(1.2);
+  }
+  60% {
+    transform: translate(-50%, -50%) translate(20px, 40px) scale(0.9);
+  }
+  80% {
+    transform: translate(-50%, -50%) translate(-25px, 15px) scale(1.1);
+  }
+}
+
+@keyframes float-4 {
+  0%, 100% {
+    transform: translate(-50%, -50%) translate(0, 0) scale(1);
+  }
+  30% {
+    transform: translate(-50%, -50%) translate(-25px, -30px) scale(1.08);
+  }
+  60% {
+    transform: translate(-50%, -50%) translate(35px, 25px) scale(0.92);
+  }
+}
+
+@keyframes float-5 {
+  0%, 100% {
+    transform: translate(-50%, -50%) translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(-50%, -50%) translate(20px, -25px) scale(1.12);
+  }
+  50% {
+    transform: translate(-50%, -50%) translate(-40px, 30px) scale(0.88);
+  }
+  75% {
+    transform: translate(-50%, -50%) translate(15px, 20px) scale(1.05);
+  }
+}
+
+/* Smooth transitions for gradient orbs */
+.gradient-orb {
+  will-change: transform, opacity;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Tech Animation - Floating Elements with Glow */
+@keyframes float-tech-glow {
+  0%, 100% {
+    transform: translate(-50%, -50%) translate(0, 0) rotate(0deg) scale(1);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translate(-50%, -50%) translate(30px, -40px) rotate(8deg) scale(1.1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-50%, -50%) translate(-25px, 35px) rotate(-8deg) scale(0.95);
+    opacity: 0.7;
+  }
+  75% {
+    transform: translate(-50%, -50%) translate(15px, -20px) rotate(5deg) scale(1.05);
+    opacity: 0.75;
+  }
+}
+
+.animate-float-tech-glow {
+  animation: float-tech-glow 15s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Slow Pulse Animation */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.02);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+/* Binary Blink Animation */
+@keyframes blink {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-blink {
+  animation: blink 1.5s ease-in-out infinite;
+}
+
+/* Scroll Binary Animation */
+@keyframes scroll-binary {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(20px);
+  }
+}
+
+.animate-scroll-binary {
+  animation: scroll-binary 4s linear infinite;
+}
+
+/* Typing Animation */
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.animate-typing {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3s steps(12, end) infinite;
+}
+
+/* Blinking Cursor */
+@keyframes blink-cursor {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.animate-blink-cursor {
+  animation: blink-cursor 1s step-end infinite;
+}
+
+/* Rotate Slow */
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 20s linear infinite;
+}
+
+@keyframes rotate-slow-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-rotate-slow-reverse {
+  animation: rotate-slow-reverse 25s linear infinite;
+}

@@ -1,0 +1,37 @@
+2026-01-27 12:22:40 PKT LOG:  database system was interrupted; last known up at 2026-01-24 16:49:57 PKT
+2026-01-27 12:22:41 PKT LOG:  database system was not properly shut down; automatic recovery in progress
+2026-01-27 12:22:41 PKT LOG:  redo starts at 0/5E21DB8
+2026-01-27 12:22:41 PKT LOG:  invalid record length at 0/5E21DF0: expected at least 24, got 0
+2026-01-27 12:22:41 PKT LOG:  redo done at 0/5E21DB8 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s
+2026-01-27 12:22:41 PKT LOG:  checkpoint starting: end-of-recovery immediate wait
+2026-01-27 12:22:41 PKT LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.003 s, total=0.014 s; sync files=2, longest=0.002 s, average=0.002 s; distance=0 kB, estimate=0 kB; lsn=0/5E21DF0, redo lsn=0/5E21DF0
+2026-01-27 12:36:45 PKT FATAL:  password authentication failed for user "tajseer"
+2026-01-27 12:36:45 PKT DETAIL:  Role "tajseer" does not exist.
+	Connection matched file "C:/Program Files/PostgreSQL/17/data/pg_hba.conf" line 117: "host    all             all             ::1/128                 scram-sha-256"
+2026-01-27 12:36:48 PKT FATAL:  password authentication failed for user "tajseer"
+2026-01-27 12:36:48 PKT DETAIL:  Role "tajseer" does not exist.
+	Connection matched file "C:/Program Files/PostgreSQL/17/data/pg_hba.conf" line 117: "host    all             all             ::1/128                 scram-sha-256"
+2026-01-27 12:36:51 PKT FATAL:  password authentication failed for user "tajseer"
+2026-01-27 12:36:51 PKT DETAIL:  Role "tajseer" does not exist.
+	Connection matched file "C:/Program Files/PostgreSQL/17/data/pg_hba.conf" line 117: "host    all             all             ::1/128                 scram-sha-256"
+2026-01-27 12:36:54 PKT FATAL:  password authentication failed for user "tajseer"
+2026-01-27 12:36:54 PKT DETAIL:  Role "tajseer" does not exist.
+	Connection matched file "C:/Program Files/PostgreSQL/17/data/pg_hba.conf" line 117: "host    all             all             ::1/128                 scram-sha-256"
+2026-01-27 12:36:57 PKT FATAL:  password authentication failed for user "tajseer"
+2026-01-27 12:36:57 PKT DETAIL:  Role "tajseer" does not exist.
+	Connection matched file "C:/Program Files/PostgreSQL/17/data/pg_hba.conf" line 117: "host    all             all             ::1/128                 scram-sha-256"
+2026-01-27 12:37:00 PKT FATAL:  password authentication failed for user "tajseer"
+2026-01-27 12:37:00 PKT DETAIL:  Role "tajseer" does not exist.
+	Connection matched file "C:/Program Files/PostgreSQL/17/data/pg_hba.conf" line 117: "host    all             all             ::1/128                 scram-sha-256"
+2026-01-27 12:37:03 PKT FATAL:  password authentication failed for user "tajseer"
+2026-01-27 12:37:03 PKT DETAIL:  Role "tajseer" does not exist.
+	Connection matched file "C:/Program Files/PostgreSQL/17/data/pg_hba.conf" line 117: "host    all             all             ::1/128                 scram-sha-256"
+2026-01-27 12:37:06 PKT FATAL:  password authentication failed for user "tajseer"
+2026-01-27 12:37:06 PKT DETAIL:  Role "tajseer" does not exist.
+	Connection matched file "C:/Program Files/PostgreSQL/17/data/pg_hba.conf" line 117: "host    all             all             ::1/128                 scram-sha-256"
+2026-01-27 12:37:09 PKT FATAL:  password authentication failed for user "tajseer"
+2026-01-27 12:37:09 PKT DETAIL:  Role "tajseer" does not exist.
+	Connection matched file "C:/Program Files/PostgreSQL/17/data/pg_hba.conf" line 117: "host    all             all             ::1/128                 scram-sha-256"
+2026-01-27 14:11:33 PKT LOG:  shutting down
+2026-01-27 14:11:33 PKT LOG:  checkpoint starting: shutdown immediate
+2026-01-27 14:11:33 PKT LOG:  checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.001 s, total=0.022 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=0 kB; lsn=0/5E21EA0, redo lsn=0/5E21EA0

@@ -1,0 +1,63 @@
+name: Deploy to Ubuntu Server
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SERVER_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy to server
+        run: |
+          rsync -avz -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no" \
+            --exclude 'node_modules' \
+            --exclude '.next' \
+            --exclude '.git' \
+            --exclude '.env.local' \
+            --exclude '.github' \
+            ./ \
+            ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }}:~/app-deploy/
+
+      - name: Build and restart application
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            # Navigate to deployment directory
+            cd ~/inspired-analyst
+            
+            # Stop current container
+            docker compose down app
+            
+            # Remove old app directory
+            rm -rf app
+            
+            # Move new code
+            mv ~/app-deploy app/
+            
+            # Rebuild and start
+            docker compose build app
+            docker compose up -d app
+            
+            # Clean up old images
+            docker image prune -f
+            
+            # Show status
+            docker compose ps
+            docker compose logs --tail=50 app
+

@@ -1,0 +1,61 @@
+2025-12-09 00:19:47 PKT LOG:  checkpoint starting: time
+2025-12-09 00:19:47 PKT LOG:  checkpoint complete: wrote 9 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.871 s, sync=0.015 s, total=0.939 s; sync files=9, longest=0.006 s, average=0.002 s; distance=9 kB, estimate=3049 kB; lsn=0/5D902F8, redo lsn=0/5D902A0
+2025-12-09 00:54:48 PKT LOG:  checkpoint starting: time
+2025-12-09 00:54:48 PKT LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.220 s, sync=0.010 s, total=0.246 s; sync files=3, longest=0.007 s, average=0.004 s; distance=4 kB, estimate=2745 kB; lsn=0/5D916E8, redo lsn=0/5D91690
+2025-12-09 00:59:13 PKT ERROR:  update or delete on table "team" violates foreign key constraint "analysts_analystId_fkey" on table "analysts"
+2025-12-09 00:59:13 PKT DETAIL:  Key (teamId)=(1) is still referenced from table "analysts".
+2025-12-09 00:59:13 PKT STATEMENT:  DELETE FROM "public"."team" WHERE ("public"."team"."id" = $1 AND 1=1) RETURNING "public"."team"."id", "public"."team"."teamId", "public"."team"."name", "public"."team"."role", "public"."team"."about", "public"."team"."bootcampAbout", "public"."team"."calendar", "public"."team"."image", "public"."team"."createdAt", "public"."team"."updatedAt"
+2025-12-09 00:59:48 PKT LOG:  checkpoint starting: time
+2025-12-09 00:59:48 PKT LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.339 s, sync=0.027 s, total=0.392 s; sync files=4, longest=0.014 s, average=0.007 s; distance=12 kB, estimate=2471 kB; lsn=0/5D949A0, redo lsn=0/5D94948
+2025-12-09 01:03:23 PKT ERROR:  update or delete on table "team" violates foreign key constraint "analysts_analystId_fkey" on table "analysts"
+2025-12-09 01:03:23 PKT DETAIL:  Key (teamId)=(1) is still referenced from table "analysts".
+2025-12-09 01:03:23 PKT STATEMENT:  DELETE FROM "public"."team" WHERE ("public"."team"."id" = $1 AND 1=1) RETURNING "public"."team"."id", "public"."team"."teamId", "public"."team"."name", "public"."team"."role", "public"."team"."about", "public"."team"."bootcampAbout", "public"."team"."calendar", "public"."team"."image", "public"."team"."createdAt", "public"."team"."updatedAt"
+2025-12-09 01:03:29 PKT ERROR:  update or delete on table "team" violates foreign key constraint "analysts_analystId_fkey" on table "analysts"
+2025-12-09 01:03:29 PKT DETAIL:  Key (teamId)=(1) is still referenced from table "analysts".
+2025-12-09 01:03:29 PKT STATEMENT:  DELETE FROM "public"."team" WHERE ("public"."team"."id" = $1 AND 1=1) RETURNING "public"."team"."id", "public"."team"."teamId", "public"."team"."name", "public"."team"."role", "public"."team"."about", "public"."team"."bootcampAbout", "public"."team"."calendar", "public"."team"."image", "public"."team"."createdAt", "public"."team"."updatedAt"
+2025-12-09 01:03:34 PKT ERROR:  update or delete on table "team" violates foreign key constraint "analysts_analystId_fkey" on table "analysts"
+2025-12-09 01:03:34 PKT DETAIL:  Key (teamId)=(2) is still referenced from table "analysts".
+2025-12-09 01:03:34 PKT STATEMENT:  DELETE FROM "public"."team" WHERE ("public"."team"."id" = $1 AND 1=1) RETURNING "public"."team"."id", "public"."team"."teamId", "public"."team"."name", "public"."team"."role", "public"."team"."about", "public"."team"."bootcampAbout", "public"."team"."calendar", "public"."team"."image", "public"."team"."createdAt", "public"."team"."updatedAt"
+2025-12-09 01:03:47 PKT ERROR:  update or delete on table "team" violates foreign key constraint "analysts_analystId_fkey" on table "analysts"
+2025-12-09 01:03:47 PKT DETAIL:  Key (teamId)=(1) is still referenced from table "analysts".
+2025-12-09 01:03:47 PKT STATEMENT:  DELETE FROM "public"."team" WHERE ("public"."team"."id" = $1 AND 1=1) RETURNING "public"."team"."id", "public"."team"."teamId", "public"."team"."name", "public"."team"."role", "public"."team"."about", "public"."team"."bootcampAbout", "public"."team"."calendar", "public"."team"."image", "public"."team"."createdAt", "public"."team"."updatedAt"
+2025-12-09 01:04:48 PKT LOG:  checkpoint starting: time
+2025-12-09 01:04:48 PKT LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.227 s, sync=0.010 s, total=0.248 s; sync files=3, longest=0.007 s, average=0.004 s; distance=13 kB, estimate=2225 kB; lsn=0/5D97E78, redo lsn=0/5D97E20
+2025-12-09 01:09:48 PKT LOG:  checkpoint starting: time
+2025-12-09 01:09:49 PKT LOG:  checkpoint complete: wrote 7 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.654 s, sync=0.008 s, total=0.676 s; sync files=6, longest=0.002 s, average=0.002 s; distance=17 kB, estimate=2005 kB; lsn=0/5D9C5F8, redo lsn=0/5D9C5A0
+2025-12-09 01:14:48 PKT LOG:  checkpoint starting: time
+2025-12-09 01:14:49 PKT LOG:  checkpoint complete: wrote 5 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.435 s, sync=0.012 s, total=0.465 s; sync files=5, longest=0.006 s, average=0.003 s; distance=6 kB, estimate=1805 kB; lsn=0/5D9E020, redo lsn=0/5D9DFB0
+2025-12-09 01:19:48 PKT LOG:  checkpoint starting: time
+2025-12-09 01:19:48 PKT LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.330 s, sync=0.015 s, total=0.361 s; sync files=4, longest=0.007 s, average=0.004 s; distance=7 kB, estimate=1625 kB; lsn=0/5D9FDF0, redo lsn=0/5D9FD98
+2025-12-09 01:24:48 PKT LOG:  checkpoint starting: time
+2025-12-09 01:24:49 PKT LOG:  checkpoint complete: wrote 9 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.868 s, sync=0.012 s, total=0.918 s; sync files=9, longest=0.003 s, average=0.002 s; distance=11 kB, estimate=1464 kB; lsn=0/5DA2C00, redo lsn=0/5DA2BA8
+2025-12-09 01:29:48 PKT LOG:  checkpoint starting: time
+2025-12-09 01:29:48 PKT LOG:  checkpoint complete: wrote 2 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.114 s, sync=0.005 s, total=0.134 s; sync files=2, longest=0.003 s, average=0.003 s; distance=6 kB, estimate=1318 kB; lsn=0/5DA44A0, redo lsn=0/5DA4448
+2025-12-09 01:33:49 PKT LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-12-09 01:33:49 PKT LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-12-09 01:34:17 PKT LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-12-09 01:34:17 PKT LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-12-09 12:55:35 PKT LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-12-09 12:55:35 PKT LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-12-09 13:09:23 PKT LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-12-09 13:09:23 PKT LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-12-09 22:36:04 PKT LOG:  checkpoint starting: time
+2025-12-09 22:36:05 PKT LOG:  checkpoint complete: wrote 11 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.100 s, sync=0.024 s, total=1.141 s; sync files=11, longest=0.008 s, average=0.003 s; distance=13 kB, estimate=1187 kB; lsn=0/5DA79F0, redo lsn=0/5DA7998
+2025-12-09 22:41:04 PKT LOG:  checkpoint starting: time
+2025-12-09 22:41:05 PKT LOG:  checkpoint complete: wrote 9 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.884 s, sync=0.023 s, total=0.923 s; sync files=9, longest=0.008 s, average=0.003 s; distance=15 kB, estimate=1070 kB; lsn=0/5DAB640, redo lsn=0/5DAB5E8
+2025-12-09 22:46:04 PKT LOG:  checkpoint starting: time
+2025-12-09 22:46:04 PKT LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.222 s, sync=0.009 s, total=0.249 s; sync files=3, longest=0.005 s, average=0.003 s; distance=7 kB, estimate=964 kB; lsn=0/5DAD4E0, redo lsn=0/5DAD488
+2025-12-09 23:25:06 PKT LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-12-09 23:25:06 PKT LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-12-09 23:26:04 PKT LOG:  checkpoint starting: time
+2025-12-09 23:26:05 PKT LOG:  checkpoint complete: wrote 9 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.878 s, sync=0.011 s, total=0.909 s; sync files=9, longest=0.002 s, average=0.002 s; distance=13 kB, estimate=869 kB; lsn=0/5DB0A68, redo lsn=0/5DB0A10

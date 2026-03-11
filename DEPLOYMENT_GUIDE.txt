@@ -1,0 +1,319 @@
+================================================================
+   NEXT.JS APP DEPLOYMENT GUIDE - UBUNTU EC2 (AWS)
+   For: Group Members Deploying Their Own Projects
+================================================================
+
+PREREQUISITES
+-------------
+- A GitHub repo with your Next.js project
+- A Linux Ubuntu EC2 instance on AWS (t2.micro or higher)
+- Your .pem key file to SSH into the server
+- Your .env.local file with all environment variables ready
+
+
+================================================================
+STEP 1 - OPEN PORT 80 IN EC2 SECURITY GROUP
+================================================================
+
+Before touching the server, set up the network rules in AWS:
+
+1. Go to AWS Console -> EC2 -> Instances -> click your instance
+2. Click the "Security" tab at the bottom
+3. Click your Security Group link
+4. Click "Edit inbound rules" -> "Add rule"
+5. Set:
+     Type   = HTTP
+     Port   = 80
+     Source = 0.0.0.0/0
+6. Save rules
+
+NOTE: Do this FIRST before anything else. Also make sure SSH
+(port 22) is open so you can connect to the server.
+
+
+================================================================
+STEP 2 - SSH INTO YOUR SERVER
+================================================================
+
+Open a terminal and run:
+
+    ssh -i /path/to/your-key.pem ubuntu@YOUR_EC2_PUBLIC_IP
+
+Where to find your public IP:
+  AWS Console -> EC2 -> Instances -> your instance
+  Look for "Public IPv4 address" in the Details tab
+  It looks like: 16.16.199.34
+
+
+
+! PITFALL: When the AWS Console shows a "Visit" or "Open"
+  link for your instance IP, it gives a raw IP with no
+  protocol (e.g. 16.16.199.34). Browsers will try https://
+  by default and fail. Always type http://YOUR_IP manually
+  in the browser address bar.
+
+
+================================================================
+STEP 3 - INSTALL NODE.JS 20
+================================================================
+
+Run these commands on the server:
+
+    curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+
+Verify installation:
+
+    node -v     # should print v20.x.x
+    npm -v      # should print 10.x.x
+
+
+================================================================
+STEP 4 - INSTALL PM2 (PROCESS MANAGER)
+================================================================
+
+PM2 keeps your app running in the background and auto-restarts
+it if it crashes. It also survives server reboots.
+
+    sudo npm install -g pm2
+
+
+================================================================
+STEP 5 - INSTALL NGINX (REVERSE PROXY)
+================================================================
+
+Nginx sits in front of your app and forwards port 80 traffic
+to your Next.js app running on port 3000.
+
+    sudo apt update
+    sudo apt install -y nginx
+
+! PITFALL: Ubuntu EC2 instances often come with Apache2
+  pre-installed and already running on port 80. If you try
+  to start Nginx and get an error like "still could not bind()",
+  Apache2 is blocking port 80. Fix it with:
+
+    sudo systemctl stop apache2
+    sudo systemctl disable apache2
+
+  Then start Nginx again:
+
+    sudo systemctl start nginx
+
+
+================================================================
+STEP 6 - CLONE YOUR REPO
+================================================================
+
+    cd ~
+    git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+    cd YOUR_REPO_NAME
+
+
+================================================================
+STEP 7 - CREATE YOUR ENVIRONMENT VARIABLES FILE
+================================================================
+
+Your app needs all the secrets and config values to run.
+Create the .env.local file on the server:
+
+    nano .env.local
+
+Paste in the full contents of your local .env.local file.
+
+IMPORTANT: Update this line to use your server's public IP:
+
+    NEXT_PUBLIC_BASE_URL=http://YOUR_EC2_PUBLIC_IP
+
+Save and exit: Ctrl+O -> Enter -> Ctrl+X
+
+! PITFALL: If you skip this step and run the build without
+  .env.local, Next.js will crash during the build with an
+  error like:
+    "Error: MONGODB_URI is required in .env"
+  This happens because Next.js initializes your API route
+  modules during the build process. Always create .env.local
+  BEFORE running npm run build.
+
+
+================================================================
+STEP 8 - INSTALL DEPENDENCIES AND BUILD
+================================================================
+
+    npm install
+    npm run build
+
+The build will take 20-60 seconds depending on your server size.
+A successful build ends with:
+    "Route (app) ..."  followed by a list of your routes.
+
+! PITFALL: After removing or adding packages to package.json,
+  always delete the .next folder and rebuild from scratch:
+
+    rm -rf .next
+    npm run build
+
+  Stale build cache causes "Cannot find module './XXXX.js'"
+  errors at runtime.
+
+
+================================================================
+STEP 9 - START THE APP WITH PM2
+================================================================
+
+    pm2 start npm --name "your-app-name" -- start
+    pm2 save
+    pm2 startup
+
+The "pm2 startup" command will print a command for you to copy
+and run. Run that printed command to enable auto-start on reboot.
+
+Useful PM2 commands:
+
+    pm2 status                    # see all running apps
+    pm2 logs your-app-name        # view live logs
+    pm2 restart your-app-name     # restart the app
+    pm2 stop your-app-name        # stop the app
+    pm2 delete your-app-name      # remove from PM2
+
+Verify the app is running on port 3000:
+
+    curl http://localhost:3000
+
+You should get back HTML. If you do, the app is running.
+
+
+================================================================
+STEP 10 - CONFIGURE NGINX AS REVERSE PROXY
+================================================================
+
+Create the Nginx config file:
+
+    sudo nano /etc/nginx/sites-available/your-app-name
+
+Paste this configuration (replace nothing - copy as-is):
+
+----------------------------------------
+server {
+    listen 80;
+    server_name _;
+
+    location / {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+----------------------------------------
+
+Save and exit: Ctrl+O -> Enter -> Ctrl+X
+
+Enable the config and remove the default placeholder:
+
+    sudo ln -s /etc/nginx/sites-available/your-app-name /etc/nginx/sites-enabled/
+    sudo rm /etc/nginx/sites-enabled/default
+    sudo nginx -t
+    sudo systemctl restart nginx
+
+The "nginx -t" command tests your config. It must say:
+    "nginx: configuration file /etc/nginx/nginx.conf syntax is ok"
+    "nginx: configuration file /etc/nginx/nginx.conf test is successful"
+
+before you restart.
+
+
+================================================================
+STEP 11 - VISIT YOUR APP
+================================================================
+
+Open your browser and go to:
+
+    http://YOUR_EC2_PUBLIC_IP
+
+! PITFALL: Always type the full http:// prefix manually.
+  Do NOT just type the IP address alone or use any link
+  that doesn't include http:// - browsers will try https://
+  which will fail since there is no SSL certificate set up.
+
+  Correct:   http://16.16.199.34
+  Wrong:     16.16.199.34
+  Wrong:     https://16.16.199.34
+
+
+================================================================
+UPDATING THE APP (after pushing new changes to GitHub)
+================================================================
+
+SSH into the server and run:
+
+    cd ~/YOUR_REPO_NAME
+    git pull
+    npm install
+    npm run build
+    pm2 restart your-app-name
+
+
+================================================================
+TROUBLESHOOTING REFERENCE
+================================================================
+
+Problem: "refused to connect" in browser
+  1. Check you are using http:// not https://
+  2. Run: sudo systemctl status nginx
+  3. Run: sudo ss -tlnp | grep :80
+  4. Check EC2 Security Group has port 80 open
+  5. Test from your PC: Test-NetConnection -ComputerName YOUR_IP -Port 80
+
+Problem: Nginx won't start ("still could not bind()")
+  -> Apache2 is using port 80
+  -> Run: sudo systemctl stop apache2 && sudo systemctl disable apache2
+  -> Run: sudo systemctl start nginx
+
+Problem: Build fails with "MONGODB_URI is required"
+  -> You forgot to create .env.local before building
+  -> Create it: nano .env.local
+  -> Then rebuild: npm run build
+
+Problem: App crashes after package changes ("Cannot find module")
+  -> Stale build cache
+  -> Run: rm -rf .next && npm run build
+
+Problem: App not starting / port 3000 empty
+  -> Run: pm2 logs your-app-name
+  -> Check for missing env variables or startup errors
+
+Problem: IP stopped working
+  -> Instance was stopped and restarted, IP changed
+  -> Check new IP in AWS Console -> EC2 -> Instances
+  -> Update .env.local with new IP and rebuild
+  -> Consider using an Elastic IP to avoid this
+
+
+================================================================
+OPTIONAL: MAKE YOUR IP PERMANENT (ELASTIC IP)
+================================================================
+
+By default your EC2 public IP changes every time you stop
+and start the instance.
+
+To get a permanent IP:
+1. AWS Console -> EC2 -> Elastic IPs (left sidebar)
+2. Click "Allocate Elastic IP address" -> Allocate
+3. Select the new IP -> Actions -> "Associate Elastic IP"
+4. Choose your instance -> Associate
+
+The Elastic IP is FREE as long as it is attached to a
+running instance. You are charged if you allocate one
+but don't attach it to a running instance.
+
+
+================================================================
+END OF GUIDE
+================================================================
+
+

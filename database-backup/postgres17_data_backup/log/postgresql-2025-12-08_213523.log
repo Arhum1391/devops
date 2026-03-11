@@ -1,0 +1,101 @@
+2025-12-08 21:35:24 PKT LOG:  database system was interrupted; last known up at 2025-12-08 18:39:22 PKT
+2025-12-08 21:35:25 PKT LOG:  database system was not properly shut down; automatic recovery in progress
+2025-12-08 21:35:25 PKT LOG:  redo starts at 0/235F2F0
+2025-12-08 21:35:25 PKT LOG:  invalid record length at 0/235F3F8: expected at least 24, got 0
+2025-12-08 21:35:25 PKT LOG:  redo done at 0/235F3C0 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s
+2025-12-08 21:35:25 PKT LOG:  checkpoint starting: end-of-recovery immediate wait
+2025-12-08 21:35:25 PKT LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.005 s, total=0.021 s; sync files=2, longest=0.003 s, average=0.003 s; distance=0 kB, estimate=0 kB; lsn=0/235F3F8, redo lsn=0/235F3F8
+2025-12-08 22:53:41 PKT LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-12-08 22:53:41 PKT LOG:  checkpoint starting: immediate force wait
+2025-12-08 22:53:41 PKT LOG:  checkpoint complete: wrote 6 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.008 s, total=0.023 s; sync files=6, longest=0.002 s, average=0.002 s; distance=4553 kB, estimate=4553 kB; lsn=0/27D1BB0, redo lsn=0/27D1B58
+2025-12-08 22:53:42 PKT LOG:  checkpoint starting: immediate force wait
+2025-12-08 22:53:42 PKT LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.005 s, total=0.024 s; sync files=4, longest=0.002 s, average=0.002 s; distance=4554 kB, estimate=4554 kB; lsn=0/2C44490, redo lsn=0/2C44438
+2025-12-08 22:55:00 PKT ERROR:  table "_prisma_migrations" does not exist
+2025-12-08 22:55:00 PKT STATEMENT:  DROP TABLE _prisma_migrations
+2025-12-08 22:55:00 PKT LOG:  checkpoint starting: immediate force wait
+2025-12-08 22:55:00 PKT LOG:  checkpoint complete: wrote 53 buffers (0.3%); 0 WAL file(s) added, 0 removed, 1 recycled; write=0.011 s, sync=0.050 s, total=0.081 s; sync files=42, longest=0.002 s, average=0.002 s; distance=4829 kB, estimate=4829 kB; lsn=0/30FBA28, redo lsn=0/30FB9D0
+2025-12-08 22:55:07 PKT LOG:  checkpoint starting: immediate force wait
+2025-12-08 22:55:07 PKT LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.005 s, total=0.017 s; sync files=4, longest=0.002 s, average=0.002 s; distance=4554 kB, estimate=4801 kB; lsn=0/356E540, redo lsn=0/356E4E8
+2025-12-08 22:55:08 PKT LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-12-08 23:00:07 PKT LOG:  checkpoint starting: time
+2025-12-08 23:00:22 PKT LOG:  checkpoint complete: wrote 137 buffers (0.8%); 0 WAL file(s) added, 0 removed, 0 recycled; write=14.885 s, sync=0.171 s, total=15.066 s; sync files=165, longest=0.010 s, average=0.002 s; distance=873 kB, estimate=4409 kB; lsn=0/3648C10, redo lsn=0/3648B80
+2025-12-08 23:05:07 PKT LOG:  checkpoint starting: time
+2025-12-08 23:05:08 PKT LOG:  checkpoint complete: wrote 9 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.986 s, sync=0.010 s, total=1.007 s; sync files=3, longest=0.007 s, average=0.004 s; distance=29 kB, estimate=3971 kB; lsn=0/3650190, redo lsn=0/3650138
+2025-12-08 23:21:08 PKT LOG:  checkpoint starting: immediate force wait
+2025-12-08 23:21:08 PKT LOG:  checkpoint complete: wrote 6 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.008 s, total=0.019 s; sync files=6, longest=0.002 s, average=0.002 s; distance=5045 kB, estimate=5045 kB; lsn=0/3B3D808, redo lsn=0/3B3D7B0
+2025-12-08 23:21:09 PKT LOG:  checkpoint starting: immediate force wait
+2025-12-08 23:21:09 PKT LOG:  checkpoint complete: wrote 29 buffers (0.2%); 0 WAL file(s) added, 0 removed, 1 recycled; write=0.004 s, sync=0.016 s, total=0.033 s; sync files=13, longest=0.002 s, average=0.002 s; distance=5114 kB, estimate=5114 kB; lsn=0/403C3C0, redo lsn=0/403C368
+2025-12-08 23:21:09 PKT LOG:  checkpoint starting: immediate force wait
+2025-12-08 23:21:09 PKT LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.005 s, total=0.024 s; sync files=4, longest=0.002 s, average=0.002 s; distance=5038 kB, estimate=5107 kB; lsn=0/4527E70, redo lsn=0/4527E18
+2025-12-08 23:21:10 PKT FATAL:  terminating connection due to administrator command
+2025-12-08 23:21:10 PKT LOG:  checkpoint starting: immediate force wait
+2025-12-08 23:21:10 PKT LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.005 s, total=0.028 s; sync files=4, longest=0.002 s, average=0.002 s; distance=5038 kB, estimate=5100 kB; lsn=0/4A13A48, redo lsn=0/4A139F0
+2025-12-08 23:21:10 PKT LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-12-08 23:24:38 PKT LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-12-08 23:24:38 PKT LOG:  checkpoint starting: immediate force wait
+2025-12-08 23:24:38 PKT LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.005 s, total=0.018 s; sync files=4, longest=0.002 s, average=0.002 s; distance=4556 kB, estimate=5046 kB; lsn=0/4E86B68, redo lsn=0/4E86B10
+2025-12-08 23:24:38 PKT LOG:  checkpoint starting: immediate force wait
+2025-12-08 23:24:38 PKT LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 1 recycled; write=0.003 s, sync=0.005 s, total=0.021 s; sync files=4, longest=0.002 s, average=0.002 s; distance=4556 kB, estimate=4997 kB; lsn=0/52F9D20, redo lsn=0/52F9CC8
+2025-12-08 23:24:41 PKT ERROR:  table "_prisma_migrations" does not exist
+2025-12-08 23:24:41 PKT STATEMENT:  DROP TABLE _prisma_migrations
+2025-12-08 23:24:41 PKT LOG:  checkpoint starting: immediate force wait
+2025-12-08 23:24:41 PKT LOG:  checkpoint complete: wrote 76 buffers (0.5%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.008 s, sync=0.046 s, total=0.076 s; sync files=38, longest=0.002 s, average=0.002 s; distance=5075 kB, estimate=5075 kB; lsn=0/57EE928, redo lsn=0/57EE8D0
+2025-12-08 23:24:46 PKT LOG:  checkpoint starting: immediate force wait
+2025-12-08 23:24:46 PKT LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.005 s, total=0.017 s; sync files=4, longest=0.002 s, average=0.002 s; distance=4556 kB, estimate=5023 kB; lsn=0/5C61D08, redo lsn=0/5C61CB0
+2025-12-08 23:24:46 PKT LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-12-08 23:29:46 PKT LOG:  checkpoint starting: time
+2025-12-08 23:30:04 PKT LOG:  checkpoint complete: wrote 171 buffers (1.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=18.500 s, sync=0.176 s, total=18.686 s; sync files=165, longest=0.011 s, average=0.002 s; distance=995 kB, estimate=4620 kB; lsn=0/5D5AA68, redo lsn=0/5D5A9D8
+2025-12-08 23:33:36 PKT ERROR:  insert or update on table "analysts" violates foreign key constraint "analysts_analystId_fkey"
+2025-12-08 23:33:36 PKT DETAIL:  Key (analystId)=(1) is not present in table "team".
+2025-12-08 23:33:36 PKT STATEMENT:  INSERT INTO "public"."analysts" ("id","analystId","name","calendly","createdAt","updatedAt") VALUES ($1,$2,$3,$4,$5,$6) RETURNING "public"."analysts"."id", "public"."analysts"."analystId", "public"."analysts"."name", "public"."analysts"."calendly", "public"."analysts"."createdAt", "public"."analysts"."updatedAt"
+2025-12-08 23:33:36 PKT ERROR:  insert or update on table "analysts" violates foreign key constraint "analysts_analystId_fkey"
+2025-12-08 23:33:36 PKT DETAIL:  Key (analystId)=(2) is not present in table "team".
+2025-12-08 23:33:36 PKT STATEMENT:  INSERT INTO "public"."analysts" ("id","analystId","name","calendly","createdAt","updatedAt") VALUES ($1,$2,$3,$4,$5,$6) RETURNING "public"."analysts"."id", "public"."analysts"."analystId", "public"."analysts"."name", "public"."analysts"."calendly", "public"."analysts"."createdAt", "public"."analysts"."updatedAt"
+2025-12-08 23:33:36 PKT ERROR:  insert or update on table "analysts" violates foreign key constraint "analysts_analystId_fkey"
+2025-12-08 23:33:36 PKT DETAIL:  Key (analystId)=(3) is not present in table "team".
+2025-12-08 23:33:36 PKT STATEMENT:  INSERT INTO "public"."analysts" ("id","analystId","name","calendly","createdAt","updatedAt") VALUES ($1,$2,$3,$4,$5,$6) RETURNING "public"."analysts"."id", "public"."analysts"."analystId", "public"."analysts"."name", "public"."analysts"."calendly", "public"."analysts"."createdAt", "public"."analysts"."updatedAt"
+2025-12-08 23:33:36 PKT ERROR:  insert or update on table "analysts" violates foreign key constraint "analysts_analystId_fkey"
+2025-12-08 23:33:36 PKT DETAIL:  Key (analystId)=(4) is not present in table "team".
+2025-12-08 23:33:36 PKT STATEMENT:  INSERT INTO "public"."analysts" ("id","analystId","name","calendly","createdAt","updatedAt") VALUES ($1,$2,$3,$4,$5,$6) RETURNING "public"."analysts"."id", "public"."analysts"."analystId", "public"."analysts"."name", "public"."analysts"."calendly", "public"."analysts"."createdAt", "public"."analysts"."updatedAt"
+2025-12-08 23:33:36 PKT ERROR:  insert or update on table "analysts" violates foreign key constraint "analysts_analystId_fkey"
+2025-12-08 23:33:36 PKT DETAIL:  Key (analystId)=(5) is not present in table "team".
+2025-12-08 23:33:36 PKT STATEMENT:  INSERT INTO "public"."analysts" ("id","analystId","name","calendly","createdAt","updatedAt") VALUES ($1,$2,$3,$4,$5,$6) RETURNING "public"."analysts"."id", "public"."analysts"."analystId", "public"."analysts"."name", "public"."analysts"."calendly", "public"."analysts"."createdAt", "public"."analysts"."updatedAt"
+2025-12-08 23:33:36 PKT ERROR:  insert or update on table "analysts" violates foreign key constraint "analysts_analystId_fkey"
+2025-12-08 23:33:36 PKT DETAIL:  Key (analystId)=(6) is not present in table "team".
+2025-12-08 23:33:36 PKT STATEMENT:  INSERT INTO "public"."analysts" ("id","analystId","name","calendly","createdAt","updatedAt") VALUES ($1,$2,$3,$4,$5,$6) RETURNING "public"."analysts"."id", "public"."analysts"."analystId", "public"."analysts"."name", "public"."analysts"."calendly", "public"."analysts"."createdAt", "public"."analysts"."updatedAt"
+2025-12-08 23:33:36 PKT ERROR:  insert or update on table "analysts" violates foreign key constraint "analysts_analystId_fkey"
+2025-12-08 23:33:36 PKT DETAIL:  Key (analystId)=(7) is not present in table "team".
+2025-12-08 23:33:36 PKT STATEMENT:  INSERT INTO "public"."analysts" ("id","analystId","name","calendly","createdAt","updatedAt") VALUES ($1,$2,$3,$4,$5,$6) RETURNING "public"."analysts"."id", "public"."analysts"."analystId", "public"."analysts"."name", "public"."analysts"."calendly", "public"."analysts"."createdAt", "public"."analysts"."updatedAt"
+2025-12-08 23:33:41 PKT ERROR:  insert or update on table "reviews" violates foreign key constraint "reviews_analystId_fkey"
+2025-12-08 23:33:41 PKT DETAIL:  Key (analystId)=(0) is not present in table "team".
+2025-12-08 23:33:41 PKT STATEMENT:  INSERT INTO "public"."reviews" ("id","analystId","analystName","reviewerName","userId","reviewerId","userProfilePicture","rating","comment","reviewDate","status","createdAt","updatedAt","approvedAt","rejectedAt") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15) RETURNING "public"."reviews"."id", "public"."reviews"."analystId", "public"."reviews"."analystName", "public"."reviews"."reviewerName", "public"."reviews"."userId", "public"."reviews"."reviewerId", "public"."reviews"."userProfilePicture", "public"."reviews"."rating", "public"."reviews"."comment", "public"."reviews"."reviewDate", "public"."reviews"."status", "public"."reviews"."createdAt", "public"."reviews"."updatedAt", "public"."reviews"."approvedAt", "public"."reviews"."rejectedAt"
+2025-12-08 23:33:41 PKT ERROR:  insert or update on table "reviews" violates foreign key constraint "reviews_analystId_fkey"
+2025-12-08 23:33:41 PKT DETAIL:  Key (analystId)=(2) is not present in table "team".
+2025-12-08 23:33:41 PKT STATEMENT:  INSERT INTO "public"."reviews" ("id","analystId","analystName","reviewerName","userId","reviewerId","userProfilePicture","rating","comment","reviewDate","status","createdAt","updatedAt","approvedAt","rejectedAt") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15) RETURNING "public"."reviews"."id", "public"."reviews"."analystId", "public"."reviews"."analystName", "public"."reviews"."reviewerName", "public"."reviews"."userId", "public"."reviews"."reviewerId", "public"."reviews"."userProfilePicture", "public"."reviews"."rating", "public"."reviews"."comment", "public"."reviews"."reviewDate", "public"."reviews"."status", "public"."reviews"."createdAt", "public"."reviews"."updatedAt", "public"."reviews"."approvedAt", "public"."reviews"."rejectedAt"
+2025-12-08 23:33:41 PKT ERROR:  insert or update on table "reviews" violates foreign key constraint "reviews_analystId_fkey"
+2025-12-08 23:33:41 PKT DETAIL:  Key (analystId)=(5) is not present in table "team".
+2025-12-08 23:33:41 PKT STATEMENT:  INSERT INTO "public"."reviews" ("id","analystId","analystName","reviewerName","userId","reviewerId","userProfilePicture","rating","comment","reviewDate","status","createdAt","updatedAt","approvedAt","rejectedAt") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15) RETURNING "public"."reviews"."id", "public"."reviews"."analystId", "public"."reviews"."analystName", "public"."reviews"."reviewerName", "public"."reviews"."userId", "public"."reviews"."reviewerId", "public"."reviews"."userProfilePicture", "public"."reviews"."rating", "public"."reviews"."comment", "public"."reviews"."reviewDate", "public"."reviews"."status", "public"."reviews"."createdAt", "public"."reviews"."updatedAt", "public"."reviews"."approvedAt", "public"."reviews"."rejectedAt"
+2025-12-08 23:33:41 PKT ERROR:  insert or update on table "reviews" violates foreign key constraint "reviews_analystId_fkey"
+2025-12-08 23:33:41 PKT DETAIL:  Key (analystId)=(0) is not present in table "team".
+2025-12-08 23:33:41 PKT STATEMENT:  INSERT INTO "public"."reviews" ("id","analystId","analystName","reviewerName","userId","reviewerId","userProfilePicture","rating","comment","reviewDate","status","createdAt","updatedAt","approvedAt","rejectedAt") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15) RETURNING "public"."reviews"."id", "public"."reviews"."analystId", "public"."reviews"."analystName", "public"."reviews"."reviewerName", "public"."reviews"."userId", "public"."reviews"."reviewerId", "public"."reviews"."userProfilePicture", "public"."reviews"."rating", "public"."reviews"."comment", "public"."reviews"."reviewDate", "public"."reviews"."status", "public"."reviews"."createdAt", "public"."reviews"."updatedAt", "public"."reviews"."approvedAt", "public"."reviews"."rejectedAt"
+2025-12-08 23:33:41 PKT ERROR:  insert or update on table "reviews" violates foreign key constraint "reviews_analystId_fkey"
+2025-12-08 23:33:41 PKT DETAIL:  Key (analystId)=(2) is not present in table "team".
+2025-12-08 23:33:41 PKT STATEMENT:  INSERT INTO "public"."reviews" ("id","analystId","analystName","reviewerName","userId","reviewerId","userProfilePicture","rating","comment","reviewDate","status","createdAt","updatedAt","approvedAt","rejectedAt") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15) RETURNING "public"."reviews"."id", "public"."reviews"."analystId", "public"."reviews"."analystName", "public"."reviews"."reviewerName", "public"."reviews"."userId", "public"."reviews"."reviewerId", "public"."reviews"."userProfilePicture", "public"."reviews"."rating", "public"."reviews"."comment", "public"."reviews"."reviewDate", "public"."reviews"."status", "public"."reviews"."createdAt", "public"."reviews"."updatedAt", "public"."reviews"."approvedAt", "public"."reviews"."rejectedAt"
+2025-12-08 23:33:41 PKT ERROR:  insert or update on table "reviews" violates foreign key constraint "reviews_analystId_fkey"
+2025-12-08 23:33:41 PKT DETAIL:  Key (analystId)=(0) is not present in table "team".
+2025-12-08 23:33:41 PKT STATEMENT:  INSERT INTO "public"."reviews" ("id","analystId","analystName","reviewerName","userId","reviewerId","userProfilePicture","rating","comment","reviewDate","status","createdAt","updatedAt","approvedAt","rejectedAt") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15) RETURNING "public"."reviews"."id", "public"."reviews"."analystId", "public"."reviews"."analystName", "public"."reviews"."reviewerName", "public"."reviews"."userId", "public"."reviews"."reviewerId", "public"."reviews"."userProfilePicture", "public"."reviews"."rating", "public"."reviews"."comment", "public"."reviews"."reviewDate", "public"."reviews"."status", "public"."reviews"."createdAt", "public"."reviews"."updatedAt", "public"."reviews"."approvedAt", "public"."reviews"."rejectedAt"
+2025-12-08 23:34:46 PKT LOG:  checkpoint starting: time
+2025-12-08 23:34:49 PKT LOG:  checkpoint complete: wrote 24 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.514 s, sync=0.036 s, total=2.567 s; sync files=14, longest=0.009 s, average=0.003 s; distance=21 kB, estimate=4160 kB; lsn=0/5D5FE38, redo lsn=0/5D5FDE0
+2025-12-08 23:39:46 PKT LOG:  checkpoint starting: time
+2025-12-08 23:39:54 PKT LOG:  checkpoint complete: wrote 70 buffers (0.4%); 0 WAL file(s) added, 0 removed, 0 recycled; write=7.542 s, sync=0.065 s, total=7.622 s; sync files=44, longest=0.014 s, average=0.002 s; distance=102 kB, estimate=3754 kB; lsn=0/5D796F0, redo lsn=0/5D79660
+2025-12-08 23:44:46 PKT LOG:  checkpoint starting: time
+2025-12-08 23:44:49 PKT LOG:  checkpoint complete: wrote 35 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=3.747 s, sync=0.036 s, total=3.799 s; sync files=27, longest=0.007 s, average=0.002 s; distance=81 kB, estimate=3387 kB; lsn=0/5D8DB68, redo lsn=0/5D8DAD8
+2025-12-08 23:52:57 PKT LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-12-08 23:52:57 PKT LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	

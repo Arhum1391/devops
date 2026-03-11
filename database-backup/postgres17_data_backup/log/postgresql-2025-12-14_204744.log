@@ -1,0 +1,7 @@
+2025-12-14 20:47:44 PKT LOG:  database system was interrupted; last known up at 2025-12-12 15:55:29 PKT
+2025-12-14 20:47:45 PKT LOG:  database system was not properly shut down; automatic recovery in progress
+2025-12-14 20:47:45 PKT LOG:  redo starts at 0/5E1FE38
+2025-12-14 20:47:45 PKT LOG:  invalid record length at 0/5E1FF40: expected at least 24, got 0
+2025-12-14 20:47:45 PKT LOG:  redo done at 0/5E1FF08 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s
+2025-12-14 20:47:45 PKT LOG:  checkpoint starting: end-of-recovery immediate wait
+2025-12-14 20:47:45 PKT LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.003 s, total=0.016 s; sync files=2, longest=0.002 s, average=0.002 s; distance=0 kB, estimate=0 kB; lsn=0/5E1FF40, redo lsn=0/5E1FF40

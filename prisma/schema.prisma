@@ -1,0 +1,411 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Admin Users
+model User {
+  id        String   @id @default(uuid())
+  username  String   @unique
+  password  String
+  createdAt DateTime @default(now())
+
+  @@map("users")
+}
+
+// Public Users (Customers)
+model PublicUser {
+  id                          String    @id @default(uuid())
+  email                       String    @unique
+  password                    String
+  name                        String?
+  image                       String?
+  isPaid                      Boolean   @default(false)
+  subscriptionStatus          String    @default("none")
+  lastPaymentAt               DateTime?
+  emailVerified               Boolean   @default(false)
+  emailVerificationToken      String?
+  emailVerificationTokenExpiry DateTime?
+  passwordResetToken          String?
+  passwordResetTokenExpiry    DateTime?
+  createdAt                   DateTime  @default(now())
+  updatedAt                   DateTime  @updatedAt
+
+  // Relations
+  subscriptions               Subscription[]
+  paymentMethods              PaymentMethod[]
+  billingHistory              BillingHistory[]
+  bookings                    Booking[]
+  bootcampRegistrations       BootcampRegistration[]
+  reviews                     Review[]
+  binanceCredentials          BinanceCredential?
+
+  @@map("public_users")
+}
+
+// Team Members / Analysts
+model TeamMember {
+  id           String   @id @default(uuid())
+  teamId       Int      @unique // Original MongoDB id field
+  name         String
+  role         String
+  about        String
+  bootcampAbout String?
+  calendar     String
+  image        String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Relations
+  reviews      Review[]
+  analyst      Analyst?
+
+  @@map("team")
+  @@index([teamId])
+}
+
+// Analysts (Calendly credentials)
+model Analyst {
+  id        String   @id @default(uuid())
+  analystId Int      @unique
+  name      String
+  calendly  Json?    // { enabled: boolean, userUri: string, accessToken: string, refreshToken?: string, teamUri?: string }
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  teamMember TeamMember? @relation(fields: [analystId], references: [teamId])
+
+  @@map("analysts")
+  @@index([analystId])
+}
+
+// Newsletter Subscribers
+model Subscriber {
+  id          String   @id @default(uuid())
+  email       String   @unique
+  name        String?
+  subscribedAt DateTime @default(now())
+  isActive    Boolean  @default(true)
+
+  @@map("subscribers")
+  @@index([email])
+}
+
+// Bookings
+model Booking {
+  id          String   @id @default(uuid())
+  clientName  String
+  clientEmail String
+  service     String
+  date        DateTime
+  time        String
+  status      String   // 'pending' | 'confirmed' | 'completed' | 'cancelled'
+  notes       String?
+  stripeSessionId String?
+  expiresAt   DateTime?
+  createdAt   DateTime @default(now())
+
+  // Relations
+  userId      String?
+  user        PublicUser? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@map("bookings")
+  @@index([clientEmail])
+  @@index([date])
+  @@index([stripeSessionId])
+}
+
+// Bootcamps
+model Bootcamp {
+  id                  String   @id @default(uuid())
+  bootcampId          String   @unique // Original MongoDB id field
+  title               String
+  description         String
+  price               String   // Display price (e.g., "$99")
+  priceAmount         Float    // Numeric price in dollars for Stripe
+  duration            String
+  format              String   // 'Online' | 'In-Person' | 'Hybrid'
+  mentors             String[] // Array of mentor names
+  registrationStartDate DateTime
+  registrationEndDate DateTime
+  bootcampStartDate   DateTime?
+  tags                String[]
+  gradientPosition    Json     // { left: string, top: string, rotation: string }
+  isActive            Boolean  @default(true)
+  heroSubheading      String?
+  heroDescription     String[] // Array of strings
+  infoCards           Json?    // InfoCards interface
+  mentorDetails       Json?    // MentorDetail[] array
+  curriculumSections  Json?    // CurriculumSection[] array
+  targetAudience      Json?    // TargetAudience interface
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  // Relations
+  registrations       BootcampRegistration[]
+  lessons             BootcampLesson[]
+
+  @@map("bootcamps")
+  @@index([bootcampId])
+  @@index([isActive])
+}
+
+// Bootcamp Lessons
+model BootcampLesson {
+  id          String   @id @default(uuid())
+  lessonId    String
+  bootcampId  String
+  title       String
+  description String?
+  youtubeVideoId String
+  thumbnail   String?
+  order       Int
+  duration    Int?     // Duration in seconds
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  bootcamp    Bootcamp @relation(fields: [bootcampId], references: [bootcampId], onDelete: Cascade)
+
+  @@map("bootcamp_lessons")
+  @@index([bootcampId])
+  @@index([lessonId])
+}
+
+// Bootcamp Registrations
+model BootcampRegistration {
+  id              String   @id @default(uuid())
+  userId          String?
+  bootcampId      String
+  customerName    String
+  customerEmail   String
+  stripeSessionId String?
+  status          String   @default("pending") // 'pending' | 'confirmed' | 'completed' | 'cancelled'
+  expiresAt       DateTime?
+  notes           String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  user            PublicUser? @relation(fields: [userId], references: [id], onDelete: SetNull)
+  bootcamp        Bootcamp? @relation(fields: [bootcampId], references: [bootcampId], onDelete: SetNull)
+
+  @@map("bootcamp_registrations")
+  @@index([userId])
+  @@index([bootcampId])
+  @@index([stripeSessionId])
+  @@index([customerEmail])
+}
+
+// Subscription Plans
+model Plan {
+  id              String   @id @default(uuid())
+  planId          String   @unique // 'monthly' | 'annual' | 'platinum'
+  name            String
+  description     String?
+  priceDisplay    String   // Display price (e.g., "$30 USD")
+  priceAmount     Float    // Numeric price
+  stripePriceId   String?
+  billingInterval String   // 'month' | 'year' | '6 months'
+  isFree          Boolean  @default(false)
+  isActive        Boolean  @default(true)
+  features        String[] // Array of feature strings
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  subscriptions   Subscription[] @relation("PlanSubscriptions")
+
+  @@map("plans")
+  @@index([planId])
+  @@index([isActive])
+}
+
+// Subscriptions
+model Subscription {
+  id                  String   @id @default(uuid())
+  userId              String
+  stripeSubscriptionId String  @unique
+  stripeCustomerId    String
+  planName            String
+  planType            String   // 'monthly' | 'annual' | 'platinum'
+  planId              String?  // Foreign key to Plan
+  price               String
+  status              String   // Stripe subscription status
+  currentPeriodStart  DateTime
+  currentPeriodEnd    DateTime
+  cancelAtPeriodEnd   Boolean  @default(false)
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  // Relations
+  user                PublicUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+  plan                Plan? @relation("PlanSubscriptions", fields: [planId], references: [planId], onDelete: SetNull)
+  billingHistory      BillingHistory[]
+
+  @@map("subscriptions")
+  @@index([userId])
+  @@index([stripeSubscriptionId])
+  @@index([stripeCustomerId])
+  @@index([planId])
+}
+
+// Payment Methods
+model PaymentMethod {
+  id                  String   @id @default(uuid())
+  userId              String
+  stripePaymentMethodId String
+  stripeCustomerId    String
+  type                String   // 'card' | 'bank_account' | etc.
+  last4               String?
+  brand               String?  // 'visa' | 'mastercard' | etc.
+  expMonth            Int?
+  expYear             Int?
+  isDefault           Boolean  @default(false)
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  // Relations
+  user                PublicUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("payment_methods")
+  @@index([userId])
+  @@index([stripePaymentMethodId])
+  @@index([stripeCustomerId])
+}
+
+// Billing History
+model BillingHistory {
+  id                  String   @id @default(uuid())
+  userId              String
+  stripeInvoiceId     String?
+  stripePaymentIntentId String?
+  subscriptionId      String?
+  amount              Float
+  currency            String   @default("usd")
+  status              String   // 'paid' | 'pending' | 'failed' | 'refunded'
+  description         String?
+  invoiceDate         DateTime
+  paidAt              DateTime?
+  createdAt           DateTime @default(now())
+
+  // Relations
+  user                PublicUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+  subscription        Subscription? @relation(fields: [subscriptionId], references: [stripeSubscriptionId], onDelete: SetNull)
+
+  @@map("billing_history")
+  @@index([userId])
+  @@index([stripeInvoiceId])
+  @@index([stripePaymentIntentId])
+  @@index([subscriptionId])
+}
+
+// Reviews
+model Review {
+  id                String   @id @default(uuid())
+  analystId         Int      // References TeamMember.teamId
+  analystName       String
+  reviewerName      String
+  userId            String?
+  reviewerId        String?
+  userProfilePicture String?
+  rating            Int      // 1-5
+  comment           String
+  reviewDate        String   // ISO date string
+  status            String   @default("pending") // 'pending' | 'approved' | 'rejected'
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  approvedAt        DateTime?
+  rejectedAt        DateTime?
+
+  // Relations
+  user              PublicUser? @relation(fields: [userId], references: [id], onDelete: SetNull)
+  teamMember        TeamMember? @relation(fields: [analystId], references: [teamId], onDelete: Cascade)
+
+  @@map("reviews")
+  @@index([analystId])
+  @@index([status])
+  @@index([userId])
+}
+
+// Research Page Content
+model ResearchPageContent {
+  id                        String   @id @default(uuid())
+  heroTitleAuthenticated    String
+  heroDescriptionAuthenticated String
+  heroTitleGuest            String
+  heroDescriptionGuest      String
+  heroBulletPoints          String[] // Array of bullet point texts
+  faqTitle                  String
+  faqDescription            String
+  faqItems                  Json     // FAQItem[] array: [{ question: string, answer: string }]
+  createdAt                 DateTime @default(now())
+  updatedAt                 DateTime @updatedAt
+
+  @@map("research_page_content")
+}
+
+// Shariah Tiles (if needed in future)
+model ShariahTile {
+  id                String   @id @default(uuid())
+  slug              String   @unique
+  title             String
+  category          String
+  description       String
+  compliancePoints  String[]
+  footerLeft        String
+  footerRight       String
+  ctaLabel          String
+  detailPath        String
+  lockedTitle       String
+  lockedDescription String
+  analystNotes      String
+  complianceMetrics Json?    // ComplianceMetric[] array
+  customTable       Json?    // CustomTable interface
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@map("shariah_tiles")
+  @@index([slug])
+}
+
+// Binance Credentials (encrypted)
+model BinanceCredential {
+  id          String   @id @default(uuid())
+  userId      String   @unique
+  apiKey      String   // Encrypted JSON string
+  apiSecret   String   // Encrypted JSON string
+  passphrase  String?  // Encrypted JSON string (optional)
+  useTestnet  Boolean  @default(false)
+  label       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  user        PublicUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("binance_credentials")
+  @@index([userId])
+}
+
+// Bootcamp Progress (user progress tracking)
+model BootcampProgress {
+  id          String   @id @default(uuid())
+  userId      String
+  bootcampId  String
+  lessons     Json     // LessonProgress[] array: [{ lessonId: string, progress: number, lastWatchedAt?: Date, completedAt?: Date }]
+  updatedAt   DateTime @updatedAt
+
+  @@map("bootcamp_progress")
+  @@unique([userId, bootcampId])
+  @@index([userId])
+  @@index([bootcampId])
+}

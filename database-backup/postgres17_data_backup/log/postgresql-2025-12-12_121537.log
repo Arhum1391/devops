@@ -1,0 +1,219 @@
+2025-12-12 12:15:37 PKT LOG:  database system was shut down at 2025-12-11 22:47:03 PKT
+2025-12-12 12:19:50 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 12:19:50 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 12:19:54 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 12:19:54 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 12:20:37 PKT LOG:  checkpoint starting: time
+2025-12-12 12:20:37 PKT LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.009 s, sync=0.004 s, total=0.075 s; sync files=2, longest=0.002 s, average=0.002 s; distance=0 kB, estimate=0 kB; lsn=0/5E1B260, redo lsn=0/5E1B208
+2025-12-12 12:21:36 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 12:21:36 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 12:24:55 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 12:24:55 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 12:26:36 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 12:26:36 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 12:29:55 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 12:29:55 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 12:31:36 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 12:31:36 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 12:34:01 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 12:34:01 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 12:34:55 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 12:34:55 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 12:57:25 PKT LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-12-12 14:02:02 PKT LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-12-12 14:08:16 PKT ERROR:  relation "public.subscribers" does not exist at character 63
+2025-12-12 14:08:16 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."subscribers"."id" FROM "public"."subscribers" WHERE "public"."subscribers"."isActive" = $1 OFFSET $2) AS "sub"
+2025-12-12 14:08:16 PKT ERROR:  relation "public.bookings" does not exist at character 60
+2025-12-12 14:08:16 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."bookings"."id" FROM "public"."bookings" WHERE ("public"."bookings"."date" >= $1 AND "public"."bookings"."date" < $2) OFFSET $3) AS "sub"
+2025-12-12 14:08:16 PKT ERROR:  relation "public.bootcamps" does not exist at character 61
+2025-12-12 14:08:16 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."bootcamps"."id" FROM "public"."bootcamps" WHERE "public"."bootcamps"."isActive" = $1 OFFSET $2) AS "sub"
+2025-12-12 14:08:16 PKT ERROR:  relation "public.subscribers" does not exist at character 63
+2025-12-12 14:08:16 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."subscribers"."id" FROM "public"."subscribers" WHERE "public"."subscribers"."isActive" = $1 OFFSET $2) AS "sub"
+2025-12-12 14:08:16 PKT ERROR:  relation "public.bookings" does not exist at character 60
+2025-12-12 14:08:16 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."bookings"."id" FROM "public"."bookings" WHERE ("public"."bookings"."date" >= $1 AND "public"."bookings"."date" < $2) OFFSET $3) AS "sub"
+2025-12-12 14:08:16 PKT ERROR:  relation "public.bootcamps" does not exist at character 61
+2025-12-12 14:08:16 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."bootcamps"."id" FROM "public"."bootcamps" WHERE "public"."bootcamps"."isActive" = $1 OFFSET $2) AS "sub"
+2025-12-12 14:09:20 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 14:09:20 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 14:09:26 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 14:09:26 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 14:09:49 PKT ERROR:  relation "public.subscribers" does not exist at character 63
+2025-12-12 14:09:49 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."subscribers"."id" FROM "public"."subscribers" WHERE "public"."subscribers"."isActive" = $1 OFFSET $2) AS "sub"
+2025-12-12 14:09:49 PKT ERROR:  relation "public.bookings" does not exist at character 60
+2025-12-12 14:09:49 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."bookings"."id" FROM "public"."bookings" WHERE ("public"."bookings"."date" >= $1 AND "public"."bookings"."date" < $2) OFFSET $3) AS "sub"
+2025-12-12 14:09:49 PKT ERROR:  relation "public.bootcamps" does not exist at character 61
+2025-12-12 14:09:49 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."bootcamps"."id" FROM "public"."bootcamps" WHERE "public"."bootcamps"."isActive" = $1 OFFSET $2) AS "sub"
+2025-12-12 14:09:49 PKT ERROR:  relation "public.subscribers" does not exist at character 63
+2025-12-12 14:09:49 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."subscribers"."id" FROM "public"."subscribers" WHERE "public"."subscribers"."isActive" = $1 OFFSET $2) AS "sub"
+2025-12-12 14:09:49 PKT ERROR:  relation "public.bookings" does not exist at character 60
+2025-12-12 14:09:49 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."bookings"."id" FROM "public"."bookings" WHERE ("public"."bookings"."date" >= $1 AND "public"."bookings"."date" < $2) OFFSET $3) AS "sub"
+2025-12-12 14:09:50 PKT ERROR:  relation "public.bootcamps" does not exist at character 61
+2025-12-12 14:09:50 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."bootcamps"."id" FROM "public"."bootcamps" WHERE "public"."bootcamps"."isActive" = $1 OFFSET $2) AS "sub"
+2025-12-12 14:10:07 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 14:10:07 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 14:10:25 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 14:10:25 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 14:10:26 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 14:10:26 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 14:10:26 PKT ERROR:  relation "public.subscribers" does not exist at character 63
+2025-12-12 14:10:26 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."subscribers"."id" FROM "public"."subscribers" WHERE "public"."subscribers"."isActive" = $1 OFFSET $2) AS "sub"
+2025-12-12 14:10:26 PKT ERROR:  relation "public.bookings" does not exist at character 60
+2025-12-12 14:10:26 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."bookings"."id" FROM "public"."bookings" WHERE ("public"."bookings"."date" >= $1 AND "public"."bookings"."date" < $2) OFFSET $3) AS "sub"
+2025-12-12 14:10:26 PKT ERROR:  relation "public.bootcamps" does not exist at character 61
+2025-12-12 14:10:26 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."bootcamps"."id" FROM "public"."bootcamps" WHERE "public"."bootcamps"."isActive" = $1 OFFSET $2) AS "sub"
+2025-12-12 14:10:26 PKT ERROR:  relation "public.subscribers" does not exist at character 63
+2025-12-12 14:10:26 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."subscribers"."id" FROM "public"."subscribers" WHERE "public"."subscribers"."isActive" = $1 OFFSET $2) AS "sub"
+2025-12-12 14:10:27 PKT ERROR:  relation "public.bookings" does not exist at character 60
+2025-12-12 14:10:27 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."bookings"."id" FROM "public"."bookings" WHERE ("public"."bookings"."date" >= $1 AND "public"."bookings"."date" < $2) OFFSET $3) AS "sub"
+2025-12-12 14:10:27 PKT ERROR:  relation "public.bootcamps" does not exist at character 61
+2025-12-12 14:10:27 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."bootcamps"."id" FROM "public"."bootcamps" WHERE "public"."bootcamps"."isActive" = $1 OFFSET $2) AS "sub"
+2025-12-12 14:10:37 PKT LOG:  checkpoint starting: time
+2025-12-12 14:10:38 PKT LOG:  checkpoint complete: wrote 7 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.659 s, sync=0.023 s, total=0.705 s; sync files=7, longest=0.015 s, average=0.004 s; distance=9 kB, estimate=9 kB; lsn=0/5E1D758, redo lsn=0/5E1D700
+2025-12-12 14:11:25 PKT LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-12-12 14:11:25 PKT LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-12-12 14:53:06 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 14:53:06 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 14:53:06 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 14:53:06 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 14:53:13 PKT ERROR:  relation "public.subscribers" does not exist at character 63
+2025-12-12 14:53:13 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."subscribers"."id" FROM "public"."subscribers" WHERE "public"."subscribers"."isActive" = $1 OFFSET $2) AS "sub"
+2025-12-12 14:53:13 PKT ERROR:  relation "public.bookings" does not exist at character 60
+2025-12-12 14:53:13 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."bookings"."id" FROM "public"."bookings" WHERE ("public"."bookings"."date" >= $1 AND "public"."bookings"."date" < $2) OFFSET $3) AS "sub"
+2025-12-12 14:53:13 PKT ERROR:  relation "public.bootcamps" does not exist at character 61
+2025-12-12 14:53:13 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."bootcamps"."id" FROM "public"."bootcamps" WHERE "public"."bootcamps"."isActive" = $1 OFFSET $2) AS "sub"
+2025-12-12 14:53:14 PKT ERROR:  relation "public.subscribers" does not exist at character 63
+2025-12-12 14:53:14 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."subscribers"."id" FROM "public"."subscribers" WHERE "public"."subscribers"."isActive" = $1 OFFSET $2) AS "sub"
+2025-12-12 14:53:14 PKT ERROR:  relation "public.bookings" does not exist at character 60
+2025-12-12 14:53:14 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."bookings"."id" FROM "public"."bookings" WHERE ("public"."bookings"."date" >= $1 AND "public"."bookings"."date" < $2) OFFSET $3) AS "sub"
+2025-12-12 14:53:14 PKT ERROR:  relation "public.bootcamps" does not exist at character 61
+2025-12-12 14:53:14 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."bootcamps"."id" FROM "public"."bootcamps" WHERE "public"."bootcamps"."isActive" = $1 OFFSET $2) AS "sub"
+2025-12-12 14:54:32 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 14:54:32 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 14:54:33 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 14:54:33 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 14:54:33 PKT ERROR:  relation "public.subscribers" does not exist at character 63
+2025-12-12 14:54:33 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."subscribers"."id" FROM "public"."subscribers" WHERE "public"."subscribers"."isActive" = $1 OFFSET $2) AS "sub"
+2025-12-12 14:54:33 PKT ERROR:  relation "public.bookings" does not exist at character 60
+2025-12-12 14:54:33 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."bookings"."id" FROM "public"."bookings" WHERE ("public"."bookings"."date" >= $1 AND "public"."bookings"."date" < $2) OFFSET $3) AS "sub"
+2025-12-12 14:54:33 PKT ERROR:  relation "public.bootcamps" does not exist at character 61
+2025-12-12 14:54:33 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."bootcamps"."id" FROM "public"."bootcamps" WHERE "public"."bootcamps"."isActive" = $1 OFFSET $2) AS "sub"
+2025-12-12 14:54:34 PKT ERROR:  relation "public.subscribers" does not exist at character 63
+2025-12-12 14:54:34 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."subscribers"."id" FROM "public"."subscribers" WHERE "public"."subscribers"."isActive" = $1 OFFSET $2) AS "sub"
+2025-12-12 14:54:34 PKT ERROR:  relation "public.bookings" does not exist at character 60
+2025-12-12 14:54:34 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."bookings"."id" FROM "public"."bookings" WHERE ("public"."bookings"."date" >= $1 AND "public"."bookings"."date" < $2) OFFSET $3) AS "sub"
+2025-12-12 14:54:34 PKT ERROR:  relation "public.bootcamps" does not exist at character 61
+2025-12-12 14:54:34 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."bootcamps"."id" FROM "public"."bootcamps" WHERE "public"."bootcamps"."isActive" = $1 OFFSET $2) AS "sub"
+2025-12-12 14:56:06 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 14:56:06 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 14:56:12 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 14:56:12 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 14:56:20 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 14:56:20 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 14:56:23 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 14:56:23 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 14:59:35 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 14:59:35 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 15:01:24 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 15:01:24 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 15:04:35 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 15:04:35 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 15:06:24 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 15:06:24 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 15:09:33 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 15:09:33 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 15:11:24 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 15:11:24 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 15:14:33 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 15:14:33 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 15:16:24 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 15:16:24 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 15:19:33 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 15:19:33 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 15:21:24 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 15:21:24 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 15:24:33 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 15:24:33 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 15:26:24 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 15:26:24 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 15:30:18 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 15:30:18 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 15:31:24 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 15:31:24 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 15:31:33 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 15:31:33 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 15:31:36 PKT ERROR:  relation "public.subscribers" does not exist at character 63
+2025-12-12 15:31:36 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."subscribers"."id" FROM "public"."subscribers" WHERE "public"."subscribers"."isActive" = $1 OFFSET $2) AS "sub"
+2025-12-12 15:31:36 PKT ERROR:  relation "public.bookings" does not exist at character 60
+2025-12-12 15:31:36 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."bookings"."id" FROM "public"."bookings" WHERE ("public"."bookings"."date" >= $1 AND "public"."bookings"."date" < $2) OFFSET $3) AS "sub"
+2025-12-12 15:31:36 PKT ERROR:  relation "public.bootcamps" does not exist at character 61
+2025-12-12 15:31:36 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."bootcamps"."id" FROM "public"."bootcamps" WHERE "public"."bootcamps"."isActive" = $1 OFFSET $2) AS "sub"
+2025-12-12 15:31:36 PKT ERROR:  relation "public.subscribers" does not exist at character 63
+2025-12-12 15:31:36 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."subscribers"."id" FROM "public"."subscribers" WHERE "public"."subscribers"."isActive" = $1 OFFSET $2) AS "sub"
+2025-12-12 15:31:36 PKT ERROR:  relation "public.bookings" does not exist at character 60
+2025-12-12 15:31:36 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."bookings"."id" FROM "public"."bookings" WHERE ("public"."bookings"."date" >= $1 AND "public"."bookings"."date" < $2) OFFSET $3) AS "sub"
+2025-12-12 15:31:37 PKT ERROR:  relation "public.bootcamps" does not exist at character 61
+2025-12-12 15:31:37 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."bootcamps"."id" FROM "public"."bootcamps" WHERE "public"."bootcamps"."isActive" = $1 OFFSET $2) AS "sub"
+2025-12-12 15:36:34 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 15:36:34 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 15:36:47 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 15:36:47 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 15:36:50 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 15:36:50 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 15:38:16 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 15:38:16 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 15:41:34 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 15:41:34 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 15:41:40 PKT ERROR:  relation "public.subscribers" does not exist at character 63
+2025-12-12 15:41:40 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."subscribers"."id" FROM "public"."subscribers" WHERE "public"."subscribers"."isActive" = $1 OFFSET $2) AS "sub"
+2025-12-12 15:41:40 PKT ERROR:  relation "public.bookings" does not exist at character 60
+2025-12-12 15:41:40 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."bookings"."id" FROM "public"."bookings" WHERE ("public"."bookings"."date" >= $1 AND "public"."bookings"."date" < $2) OFFSET $3) AS "sub"
+2025-12-12 15:41:40 PKT ERROR:  relation "public.bootcamps" does not exist at character 61
+2025-12-12 15:41:40 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."bootcamps"."id" FROM "public"."bootcamps" WHERE "public"."bootcamps"."isActive" = $1 OFFSET $2) AS "sub"
+2025-12-12 15:41:40 PKT ERROR:  relation "public.subscribers" does not exist at character 63
+2025-12-12 15:41:40 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."subscribers"."id" FROM "public"."subscribers" WHERE "public"."subscribers"."isActive" = $1 OFFSET $2) AS "sub"
+2025-12-12 15:41:40 PKT ERROR:  relation "public.bookings" does not exist at character 60
+2025-12-12 15:41:40 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."bookings"."id" FROM "public"."bookings" WHERE ("public"."bookings"."date" >= $1 AND "public"."bookings"."date" < $2) OFFSET $3) AS "sub"
+2025-12-12 15:41:40 PKT ERROR:  relation "public.bootcamps" does not exist at character 61
+2025-12-12 15:41:40 PKT STATEMENT:  SELECT COUNT(*) FROM (SELECT "public"."bootcamps"."id" FROM "public"."bootcamps" WHERE "public"."bootcamps"."isActive" = $1 OFFSET $2) AS "sub"
+2025-12-12 15:41:47 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 15:41:47 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 15:46:03 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 15:46:03 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 15:46:33 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 15:46:33 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 15:54:28 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 15:54:28 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 15:54:28 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 15:54:28 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 15:55:29 PKT LOG:  checkpoint starting: time
+2025-12-12 15:55:29 PKT LOG:  checkpoint complete: wrote 7 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.660 s, sync=0.011 s, total=0.712 s; sync files=7, longest=0.004 s, average=0.002 s; distance=9 kB, estimate=9 kB; lsn=0/5E1FE90, redo lsn=0/5E1FE38
+2025-12-12 15:56:04 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 15:56:04 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 15:56:34 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 15:56:34 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 16:01:04 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 16:01:04 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 16:01:34 PKT ERROR:  relation "public_users" does not exist at character 68
+2025-12-12 16:01:34 PKT STATEMENT:  SELECT id, email, name, image, "isPaid", "subscriptionStatus" FROM public_users WHERE id = '68da82ca-caec-5f9d-17be-a60b000000000000'
+2025-12-12 16:03:10 PKT LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-12-12 16:03:10 PKT LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-12-12 16:03:10 PKT LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-12-12 16:03:10 PKT LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-12-12 16:03:10 PKT LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-12-12 16:03:10 PKT LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-12-12 16:03:16 PKT LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-12-12 16:03:16 PKT LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-12-12 16:03:16 PKT LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	

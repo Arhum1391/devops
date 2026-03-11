@@ -1,0 +1,167 @@
+2025-12-10 19:42:54 PKT LOG:  database system was interrupted; last known up at 2025-12-09 23:26:05 PKT
+2025-12-10 19:42:56 PKT LOG:  database system was not properly shut down; automatic recovery in progress
+2025-12-10 19:42:56 PKT LOG:  redo starts at 0/5DB0A10
+2025-12-10 19:42:56 PKT LOG:  invalid record length at 0/5DB0B18: expected at least 24, got 0
+2025-12-10 19:42:56 PKT LOG:  redo done at 0/5DB0AE0 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s
+2025-12-10 19:42:56 PKT LOG:  checkpoint starting: end-of-recovery immediate wait
+2025-12-10 19:42:56 PKT LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.006 s, total=0.024 s; sync files=2, longest=0.003 s, average=0.003 s; distance=0 kB, estimate=0 kB; lsn=0/5DB0B18, redo lsn=0/5DB0B18
+2025-12-10 22:56:37 PKT ERROR:  column "team_id" does not exist at character 21
+2025-12-10 22:56:37 PKT HINT:  Perhaps you meant to reference the column "team.teamId".
+2025-12-10 22:56:37 PKT STATEMENT:  
+	            SELECT team_id, name, role, about, image, bootcamp_about
+	            FROM team
+	            ORDER BY team_id ASC
+	        
+2025-12-10 22:56:38 PKT ERROR:  column "team_id" does not exist at character 21
+2025-12-10 22:56:38 PKT HINT:  Perhaps you meant to reference the column "team.teamId".
+2025-12-10 22:56:38 PKT STATEMENT:  
+	            SELECT team_id, name, role, about, image, bootcamp_about
+	            FROM team
+	            ORDER BY team_id ASC
+	        
+2025-12-10 22:56:41 PKT ERROR:  column "team_id" does not exist at character 21
+2025-12-10 22:56:41 PKT HINT:  Perhaps you meant to reference the column "team.teamId".
+2025-12-10 22:56:41 PKT STATEMENT:  
+	            SELECT team_id, name, role, about, image, bootcamp_about
+	            FROM team
+	            ORDER BY team_id ASC
+	        
+2025-12-10 22:56:48 PKT ERROR:  column "team_id" does not exist at character 21
+2025-12-10 22:56:48 PKT HINT:  Perhaps you meant to reference the column "team.teamId".
+2025-12-10 22:56:48 PKT STATEMENT:  
+	            SELECT team_id, name, role, about, image, bootcamp_about
+	            FROM team
+	            ORDER BY team_id ASC
+	        
+2025-12-10 22:56:49 PKT ERROR:  column "team_id" does not exist at character 21
+2025-12-10 22:56:49 PKT HINT:  Perhaps you meant to reference the column "team.teamId".
+2025-12-10 22:56:49 PKT STATEMENT:  
+	            SELECT team_id, name, role, about, image, bootcamp_about
+	            FROM team
+	            ORDER BY team_id ASC
+	        
+2025-12-10 22:56:51 PKT ERROR:  column "team_id" does not exist at character 21
+2025-12-10 22:56:51 PKT HINT:  Perhaps you meant to reference the column "team.teamId".
+2025-12-10 22:56:51 PKT STATEMENT:  
+	            SELECT team_id, name, role, about, image, bootcamp_about
+	            FROM team
+	            ORDER BY team_id ASC
+	        
+2025-12-10 23:01:19 PKT ERROR:  column "team_id" does not exist at character 21
+2025-12-10 23:01:19 PKT HINT:  Perhaps you meant to reference the column "team.teamId".
+2025-12-10 23:01:19 PKT STATEMENT:  
+	            SELECT team_id, name, role, about, image, bootcamp_about
+	            FROM team
+	            ORDER BY team_id ASC
+	        
+2025-12-10 23:01:24 PKT ERROR:  column "team_id" does not exist at character 21
+2025-12-10 23:01:24 PKT HINT:  Perhaps you meant to reference the column "team.teamId".
+2025-12-10 23:01:24 PKT STATEMENT:  
+	            SELECT team_id, name, role, about, image, bootcamp_about
+	            FROM team
+	            ORDER BY team_id ASC
+	        
+2025-12-10 23:01:24 PKT ERROR:  column "team_id" does not exist at character 21
+2025-12-10 23:01:24 PKT HINT:  Perhaps you meant to reference the column "team.teamId".
+2025-12-10 23:01:24 PKT STATEMENT:  
+	            SELECT team_id, name, role, about, image, bootcamp_about
+	            FROM team
+	            ORDER BY team_id ASC
+	        
+2025-12-10 23:01:25 PKT ERROR:  column "team_id" does not exist at character 21
+2025-12-10 23:01:25 PKT HINT:  Perhaps you meant to reference the column "team.teamId".
+2025-12-10 23:01:25 PKT STATEMENT:  
+	            SELECT team_id, name, role, about, image, bootcamp_about
+	            FROM team
+	            ORDER BY team_id ASC
+	        
+2025-12-10 23:01:26 PKT ERROR:  column "team_id" does not exist at character 21
+2025-12-10 23:01:26 PKT HINT:  Perhaps you meant to reference the column "team.teamId".
+2025-12-10 23:01:26 PKT STATEMENT:  
+	            SELECT team_id, name, role, about, image, bootcamp_about
+	            FROM team
+	            ORDER BY team_id ASC
+	        
+2025-12-10 23:01:27 PKT ERROR:  column "team_id" does not exist at character 21
+2025-12-10 23:01:27 PKT HINT:  Perhaps you meant to reference the column "team.teamId".
+2025-12-10 23:01:27 PKT STATEMENT:  
+	            SELECT team_id, name, role, about, image, bootcamp_about
+	            FROM team
+	            ORDER BY team_id ASC
+	        
+2025-12-10 23:01:29 PKT ERROR:  column "team_id" does not exist at character 21
+2025-12-10 23:01:29 PKT HINT:  Perhaps you meant to reference the column "team.teamId".
+2025-12-10 23:01:29 PKT STATEMENT:  
+	            SELECT team_id, name, role, about, image, bootcamp_about
+	            FROM team
+	            ORDER BY team_id ASC
+	        
+2025-12-10 23:01:30 PKT ERROR:  column "team_id" does not exist at character 21
+2025-12-10 23:01:30 PKT HINT:  Perhaps you meant to reference the column "team.teamId".
+2025-12-10 23:01:30 PKT STATEMENT:  
+	            SELECT team_id, name, role, about, image, bootcamp_about
+	            FROM team
+	            ORDER BY team_id ASC
+	        
+2025-12-10 23:01:32 PKT ERROR:  column "team_id" does not exist at character 21
+2025-12-10 23:01:32 PKT HINT:  Perhaps you meant to reference the column "team.teamId".
+2025-12-10 23:01:32 PKT STATEMENT:  
+	            SELECT team_id, name, role, about, image, bootcamp_about
+	            FROM team
+	            ORDER BY team_id ASC
+	        
+2025-12-10 23:01:53 PKT ERROR:  column "team_id" does not exist at character 21
+2025-12-10 23:01:53 PKT HINT:  Perhaps you meant to reference the column "team.teamId".
+2025-12-10 23:01:53 PKT STATEMENT:  
+	            SELECT team_id, name, role, about, image, bootcamp_about
+	            FROM team
+	            ORDER BY team_id ASC
+	        
+2025-12-10 23:01:54 PKT ERROR:  column "team_id" does not exist at character 21
+2025-12-10 23:01:54 PKT HINT:  Perhaps you meant to reference the column "team.teamId".
+2025-12-10 23:01:54 PKT STATEMENT:  
+	            SELECT team_id, name, role, about, image, bootcamp_about
+	            FROM team
+	            ORDER BY team_id ASC
+	        
+2025-12-10 23:01:54 PKT ERROR:  column "team_id" does not exist at character 21
+2025-12-10 23:01:54 PKT HINT:  Perhaps you meant to reference the column "team.teamId".
+2025-12-10 23:01:54 PKT STATEMENT:  
+	            SELECT team_id, name, role, about, image, bootcamp_about
+	            FROM team
+	            ORDER BY team_id ASC
+	        
+2025-12-10 23:01:55 PKT ERROR:  column "team_id" does not exist at character 21
+2025-12-10 23:01:55 PKT HINT:  Perhaps you meant to reference the column "team.teamId".
+2025-12-10 23:01:55 PKT STATEMENT:  
+	            SELECT team_id, name, role, about, image, bootcamp_about
+	            FROM team
+	            ORDER BY team_id ASC
+	        
+2025-12-10 23:01:56 PKT ERROR:  column "team_id" does not exist at character 21
+2025-12-10 23:01:56 PKT HINT:  Perhaps you meant to reference the column "team.teamId".
+2025-12-10 23:01:56 PKT STATEMENT:  
+	            SELECT team_id, name, role, about, image, bootcamp_about
+	            FROM team
+	            ORDER BY team_id ASC
+	        
+2025-12-10 23:01:57 PKT ERROR:  column "team_id" does not exist at character 21
+2025-12-10 23:01:57 PKT HINT:  Perhaps you meant to reference the column "team.teamId".
+2025-12-10 23:01:57 PKT STATEMENT:  
+	            SELECT team_id, name, role, about, image, bootcamp_about
+	            FROM team
+	            ORDER BY team_id ASC
+	        
+2025-12-10 23:03:28 PKT ERROR:  column "team_id" does not exist at character 21
+2025-12-10 23:03:28 PKT HINT:  Perhaps you meant to reference the column "team.teamId".
+2025-12-10 23:03:28 PKT STATEMENT:  
+	            SELECT team_id, name, role, about, image, bootcamp_about
+	            FROM team
+	            ORDER BY team_id ASC
+	        
+2025-12-10 23:07:56 PKT LOG:  checkpoint starting: time
+2025-12-10 23:07:57 PKT LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.325 s, sync=0.006 s, total=0.354 s; sync files=3, longest=0.003 s, average=0.002 s; distance=8 kB, estimate=8 kB; lsn=0/5DB2E30, redo lsn=0/5DB2DD8
+2025-12-10 23:35:41 PKT LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2025-12-10 23:35:41 PKT LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	

@@ -1,0 +1,58 @@
+{
+  "name": "inspired-analyst",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "rename-collection": "node rename-collection.js",
+    "create-analysts": "node scripts/create-analysts.js",
+    "migrate-bootcamp-ids": "node scripts/migrate-bootcamp-ids.js",
+    "mark-users-verified": "node scripts/mark-existing-users-verified.js",
+    "create-plans": "node scripts/create-plans.js",
+    "update-price-format": "node scripts/update-price-format.js",
+    "migrate:data": "tsx scripts/migrate-mongodb-to-postgresql.ts",
+    "migrate:postgres-to-mongo": "npx tsx scripts/migrate-postgresql-to-mongodb.ts",
+    "check:calendly": "tsx scripts/check-calendly-data.ts",
+    "analyze:db": "npx tsx scripts/analyze-database-tables.ts",
+    "backup:tables": "npx tsx scripts/backup-tables.ts",
+    "restore:tables": "npx tsx scripts/restore-tables.ts",
+    "delete:tables": "npx tsx scripts/delete-tables.ts"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.937.0",
+    "@aws-sdk/s3-request-presigner": "^3.937.0",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
+    "jsonwebtoken": "^9.0.2",
+    "lucide-react": "^0.544.0",
+    "mongodb": "^5.9.2",
+    "next": "15.5.7",
+    "nodemailer": "^7.0.9",
+    "react": "19.1.2",
+    "react-dom": "19.1.2",
+    "recharts": "^2.15.4",
+    "stripe": "^19.1.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^20",
+    "@types/nodemailer": "^7.0.2",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.7",
+    "tailwindcss": "^4",
+    "tsx": "^4.19.0",
+    "typescript": "^5"
+  }
+}
