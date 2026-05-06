@@ -1946,7 +1946,7 @@ const MeetingsPage = () => {
                             
                             if (selectedEventType && selectedEventType.booking_url) {
                                 calendlyUrl = selectedEventType.booking_url;
-                                console.log('✅ Using event type booking URL as fallback:', calendlyUrl);
+                                console.log('✅ Using event type booking URL as fallbacks:', calendlyUrl);
                                 
                                 // Helper function for time normalization
                                 const normalizeTime = (timeStr: string) => {
