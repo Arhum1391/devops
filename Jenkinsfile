@@ -15,7 +15,7 @@ pipeline {
     stages {
         stage('Checkout App Repo (Trigger Alignment)') {
             steps {
-                // Keep Jenkins job associated with app repo so app pushes trigger this pipeline.
+                // Keep Jenkins job associated with appS repo so app pushes trigger this pipeline.
                 git branch: 'main', url: "${env.APP_REPO_URL}"
             }
         }
