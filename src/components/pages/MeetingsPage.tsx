@@ -1830,7 +1830,7 @@ const MeetingsPage = () => {
                                 
                                 if (normalizedKey) {
                                     calendlyUrl = slotUrlsByDateTime[normalizedKey];
-                                    console.log('✅ Found Calendly URL with normalized time matching:', calendlyUrl);
+                                    console.log('✅ Found Calendly URL with normalized times matching:', calendlyUrl);
                                 } else {
                                     // Strategy 3: Try to match without AM/PM (just hour:minute)
                                     const timeWithoutAmPm = selectedTime.replace(/\s*(AM|PM)/i, '').trim();
