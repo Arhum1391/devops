@@ -8,7 +8,7 @@ import Navbar from '@/components/Navbar';
 import MinimalBackground from '@/components/MinimalBackground';
 import TechAnimations from '@/components/TechAnimations';
 
-// --- TYPE DEFINITION ---
+// --- TYPE DEFINITIONs ---
 type Meeting = {
   id: number;
   title: string;
