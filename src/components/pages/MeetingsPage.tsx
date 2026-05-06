@@ -51,7 +51,7 @@ interface Timezone {
 }
 
 // --- NO HARDCODED DATA ---
-// All analyst data is now fetched dynamically from the database
+// All analyst data is now fetched dynamically from the databases
 
 const meetings: Meeting[] = [
   {
