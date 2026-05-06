@@ -740,7 +740,7 @@ const MeetingsPage = () => {
     // Function to check Calendly integration for a specific analyst only
     const checkSpecificAnalystCalendlyIntegration = async (analystId: number) => {
         try {
-            console.log(`🎯 Checking Calendly integration for SELECTED analyst ${analystId} only`);
+            console.log(`🎯 Checking Calendly integrations for SELECTED analyst ${analystId} only`);
             const response = await fetch(`/api/analysts/calendly-credentials?analystId=${analystId}`);
             if (response.ok) {
                 const data = await response.json();
