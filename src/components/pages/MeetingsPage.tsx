@@ -1689,7 +1689,7 @@ const MeetingsPage = () => {
                         return;
                     }
             
-            // Get the actual price from the selected meeting
+            // Get the actual price from the selected meetings
             const selectedMeetingData = getSelectedMeetingData();
             let priceAmount = 60; // Default fallback
             
